@@ -7,59 +7,60 @@ const Gallery = () => {
   const galleryImages = [
     {
       src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Skincare Collection",
-      category: "Skincare"
+      alt: "Bőrápolási kollekció",
+      category: "Bőrápolás"
     },
     {
       src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Essential Oils",
-      category: "Aromatherapy"
+      alt: "Illóolajok",
+      category: "Aromaterápia"
     },
     {
       src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Bath Products",
-      category: "Bath & Body"
+      alt: "Fürdő termékek",
+      category: "Fürdő és test"
     },
     {
       src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Natural Ingredients",
-      category: "Ingredients"
+      alt: "Természetes összetevők",
+      category: "Összetevők"
     },
     {
       src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Wellness Tools",
+      alt: "Wellness eszközök",
       category: "Wellness"
     },
     {
       src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Gift Sets",
-      category: "Gift Collections"
+      alt: "Ajándék szettek",
+      category: "Ajándék kollekciók"
     }
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-br from-white to-rose-50">
+    <section id="gallery" className="py-12 sm:py-20 bg-gradient-to-br from-slate-900 via-navy-900 to-ocean-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-playfair font-bold text-sage-800 mb-6">
-            Product
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-sage-600">
-              Showcase
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="font-playfair font-bold text-white mb-4 sm:mb-6 animate-fade-in">
+            Termék
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-ocean-400 to-navy-400">
+              bemutató
             </span>
           </h2>
-          <p className="text-xl text-sage-600 max-w-3xl mx-auto leading-relaxed">
-            Explore our beautiful collection of premium spa products, 
-            each carefully crafted to enhance your wellness journey.
+          <p className="text-lg sm:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed px-4 animate-fade-in animate-delayed">
+            Fedezd fel gyönyörű prémium spa termék kollekciónkat, 
+            amelyek mindegyike gondosan készült a wellness utazásod fokozására.
           </p>
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {galleryImages.map((image, index) => (
             <div
               key={index}
-              className="group relative bg-white/60 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="group glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover-lift animate-whoosh"
+              style={{ animationDelay: `${index * 0.1}s` }}
               onClick={() => setSelectedImage(image.src)}
             >
               <div className="aspect-[4/3] overflow-hidden">
@@ -71,12 +72,12 @@ const Gallery = () => {
               </div>
               
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-sage-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 right-4">
-                  <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm mb-2">
+                  <span className="inline-block glass-button text-white px-3 py-1 rounded-full text-xs sm:text-sm mb-2">
                     {image.category}
                   </span>
-                  <h3 className="text-white font-semibold text-lg">{image.alt}</h3>
+                  <h3 className="text-white font-semibold text-sm sm:text-lg">{image.alt}</h3>
                 </div>
               </div>
             </div>
@@ -85,34 +86,34 @@ const Gallery = () => {
 
         {/* Modal */}
         {selectedImage && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
             <div className="relative max-w-4xl max-h-full">
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 right-0 text-white hover:text-rose-300 transition-colors"
+                className="absolute -top-12 right-0 text-white hover:text-ocean-300 transition-colors glass-button rounded-full p-2"
               >
-                <X className="w-8 h-8" />
+                <X className="w-6 h-6 sm:w-8 sm:h-8" />
               </button>
               <img
                 src={selectedImage}
-                alt="Gallery Image"
-                className="max-w-full max-h-full object-contain rounded-2xl"
+                alt="Galéria kép"
+                className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
               />
             </div>
           </div>
         )}
 
         {/* CTA */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-rose-500 to-sage-500 rounded-3xl p-8 md:p-12 text-white">
-            <h3 className="text-3xl md:text-4xl font-playfair font-bold mb-4">
-              Ready to Transform Your Routine?
+        <div className="mt-12 sm:mt-16 text-center animate-fade-in">
+          <div className="glass-card rounded-3xl p-6 sm:p-8 md:p-12 text-white">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-playfair font-bold mb-4">
+              Készen állsz a rutinod átalakítására?
             </h3>
-            <p className="text-xl mb-6 opacity-90">
-              Browse our complete collection and discover products that will elevate your self-care ritual.
+            <p className="text-lg sm:text-xl mb-6 opacity-90 px-4">
+              Böngészd teljes kollekciónkat és fedezd fel azokat a termékeket, amelyek felemelik önápolási rituálédat.
             </p>
-            <button className="bg-white text-sage-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-sage-50 transition-all duration-300 shadow-lg hover:shadow-xl">
-              Shop All Products
+            <button className="bg-gradient-to-r from-ocean-500 to-navy-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:from-ocean-600 hover:to-navy-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 animate-pulse-glow">
+              Összes termék megtekintése
             </button>
           </div>
         </div>

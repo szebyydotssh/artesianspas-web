@@ -12,8 +12,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    console.log('Űrlap elküldve:', formData);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -25,65 +24,65 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Visit Our Store",
-      content: "123 Wellness Avenue\nSerenity Hills, SH 12345"
+      icon: <MapPin className="w-5 sm:w-6 h-5 sm:h-6" />,
+      title: "Látogass el üzletünkbe",
+      content: "Wellness utca 123\nBudapest, 1234"
     },
     {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Call Us",
-      content: "+1 (555) 123-4567\n+1 (555) 987-6543"
+      icon: <Phone className="w-5 sm:w-6 h-5 sm:h-6" />,
+      title: "Hívj minket",
+      content: "+36 1 234 5678\n+36 1 987 6543"
     },
     {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email Us",
-      content: "info@serenityspa.com\norders@serenityspa.com"
+      icon: <Mail className="w-5 sm:w-6 h-5 sm:h-6" />,
+      title: "Írj nekünk",
+      content: "info@bullfrogspas.hu\nrendeles@bullfrogspas.hu"
     },
     {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Store Hours",
-      content: "Mon-Fri: 9AM-7PM\nSat-Sun: 10AM-6PM"
+      icon: <Clock className="w-5 sm:w-6 h-5 sm:h-6" />,
+      title: "Nyitvatartás",
+      content: "Hétfő-Péntek: 9:00-19:00\nSzombat-Vasárnap: 10:00-18:00"
     }
   ];
 
   const subjects = [
-    "Product Inquiry",
-    "Order Support",
-    "Shipping Question",
-    "Return/Exchange",
-    "Wholesale Inquiry",
-    "General Question"
+    "Termék érdeklődés",
+    "Rendelés támogatás",
+    "Szállítási kérdés",
+    "Visszaküldés/csere",
+    "Nagykereskedelmi érdeklődés",
+    "Általános kérdés"
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-rose-50 to-sage-50">
+    <section id="contact" className="py-12 sm:py-20 bg-gradient-to-br from-slate-900 via-navy-900 to-ocean-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-playfair font-bold text-sage-800 mb-6">
-            Get in
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-sage-600">
-              Touch
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="font-playfair font-bold text-white mb-4 sm:mb-6 animate-fade-in">
+            Lépj
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-ocean-400 to-navy-400">
+              kapcsolatba
             </span>
           </h2>
-          <p className="text-xl text-sage-600 max-w-3xl mx-auto leading-relaxed">
-            Have questions about our products? Need help with your order? 
-            We're here to help you on your wellness journey.
+          <p className="text-lg sm:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed px-4 animate-fade-in animate-delayed">
+            Kérdéseid vannak termékeinkkel kapcsolatban? Segítségre van szükséged a rendeléssel? 
+            Itt vagyunk, hogy segítsünk wellness utazásodban.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Form */}
-          <div className="bg-white/60 backdrop-blur-sm border border-white/20 rounded-3xl p-8 shadow-lg">
-            <h3 className="text-2xl font-playfair font-bold text-sage-800 mb-6">
-              Send Us a Message
+          <div className="glass-card rounded-3xl p-6 sm:p-8 shadow-lg animate-slide-in-left">
+            <h3 className="text-xl sm:text-2xl font-playfair font-bold text-white mb-4 sm:mb-6">
+              Küldj üzenetet
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-sage-700 mb-2">
-                    Full Name *
+                  <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
+                    Teljes név *
                   </label>
                   <input
                     type="text"
@@ -92,13 +91,13 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/50 border border-sage-200 rounded-xl focus:ring-2 focus:ring-sage-400 focus:border-transparent transition-all duration-200"
-                    placeholder="Your full name"
+                    className="w-full px-4 py-3 glass-button rounded-xl focus:ring-2 focus:ring-ocean-400 focus:border-transparent transition-all duration-200 text-white placeholder-white/50"
+                    placeholder="A te neved"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-sage-700 mb-2">
-                    Email Address *
+                  <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
+                    Email cím *
                   </label>
                   <input
                     type="email"
@@ -107,16 +106,16 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/50 border border-sage-200 rounded-xl focus:ring-2 focus:ring-sage-400 focus:border-transparent transition-all duration-200"
-                    placeholder="your@email.com"
+                    className="w-full px-4 py-3 glass-button rounded-xl focus:ring-2 focus:ring-ocean-400 focus:border-transparent transition-all duration-200 text-white placeholder-white/50"
+                    placeholder="te@email.hu"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-sage-700 mb-2">
-                    Phone Number
+                  <label htmlFor="phone" className="block text-sm font-medium text-white/80 mb-2">
+                    Telefonszám
                   </label>
                   <input
                     type="tel"
@@ -124,32 +123,32 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/50 border border-sage-200 rounded-xl focus:ring-2 focus:ring-sage-400 focus:border-transparent transition-all duration-200"
-                    placeholder="(555) 123-4567"
+                    className="w-full px-4 py-3 glass-button rounded-xl focus:ring-2 focus:ring-ocean-400 focus:border-transparent transition-all duration-200 text-white placeholder-white/50"
+                    placeholder="+36 1 234 5678"
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-sage-700 mb-2">
-                    Subject
+                  <label htmlFor="subject" className="block text-sm font-medium text-white/80 mb-2">
+                    Tárgy
                   </label>
                   <select
                     id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/50 border border-sage-200 rounded-xl focus:ring-2 focus:ring-sage-400 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 glass-button rounded-xl focus:ring-2 focus:ring-ocean-400 focus:border-transparent transition-all duration-200 text-white"
                   >
-                    <option value="">Select a subject</option>
+                    <option value="" className="bg-slate-800">Válassz tárgyat</option>
                     {subjects.map((subject) => (
-                      <option key={subject} value={subject}>{subject}</option>
+                      <option key={subject} value={subject} className="bg-slate-800">{subject}</option>
                     ))}
                   </select>
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-sage-700 mb-2">
-                  Message *
+                <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
+                  Üzenet *
                 </label>
                 <textarea
                   id="message"
@@ -158,49 +157,50 @@ const Contact = () => {
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/50 border border-sage-200 rounded-xl focus:ring-2 focus:ring-sage-400 focus:border-transparent transition-all duration-200 resize-none"
-                  placeholder="How can we help you today?"
+                  className="w-full px-4 py-3 glass-button rounded-xl focus:ring-2 focus:ring-ocean-400 focus:border-transparent transition-all duration-200 resize-none text-white placeholder-white/50"
+                  placeholder="Hogyan segíthetünk ma?"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-sage-500 to-sage-600 text-white py-4 rounded-xl font-semibold hover:from-sage-600 hover:to-sage-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-navy-500 to-ocean-500 text-white py-3 sm:py-4 rounded-xl font-semibold hover:from-navy-600 hover:to-ocean-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <Send className="w-5 h-5" />
-                <span>Send Message</span>
+                <span>Üzenet küldése</span>
               </button>
             </form>
           </div>
 
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8 animate-slide-in-right">
             {contactInfo.map((info, index) => (
               <div
                 key={index}
-                className="bg-white/60 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="glass-card rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start space-x-4">
-                  <div className="bg-gradient-to-br from-sage-400 to-sage-600 rounded-full p-3 text-white">
+                  <div className="bg-gradient-to-br from-ocean-400 to-navy-600 rounded-full p-3 text-white">
                     {info.icon}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sage-800 text-lg mb-2">{info.title}</h4>
-                    <p className="text-sage-600 whitespace-pre-line">{info.content}</p>
+                    <h4 className="font-semibold text-white text-base sm:text-lg mb-2">{info.title}</h4>
+                    <p className="text-white/80 whitespace-pre-line text-sm sm:text-base">{info.content}</p>
                   </div>
                 </div>
               </div>
             ))}
 
             {/* Shipping Info */}
-            <div className="bg-gradient-to-r from-rose-500 to-sage-500 rounded-2xl p-6 text-white">
+            <div className="bg-gradient-to-r from-ocean-500 to-navy-500 rounded-2xl p-4 sm:p-6 text-white animate-fade-in animate-delayed-3">
               <div className="flex items-start space-x-4">
-                <Package className="w-6 h-6 mt-1" />
+                <Package className="w-5 sm:w-6 h-5 sm:h-6 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-lg mb-2">Free Shipping</h4>
-                  <p className="opacity-90">
-                    Enjoy free shipping on all orders over $75. 
-                    Fast, secure delivery to your doorstep.
+                  <h4 className="font-semibold text-base sm:text-lg mb-2">Ingyenes szállítás</h4>
+                  <p className="opacity-90 text-sm sm:text-base">
+                    Élvezd az ingyenes szállítást minden 25.000 Ft feletti rendelésnél. 
+                    Gyors, biztonságos kiszállítás az ajtódig.
                   </p>
                 </div>
               </div>

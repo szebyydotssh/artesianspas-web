@@ -22,57 +22,60 @@ const Hero = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url("https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg)'
+            backgroundImage: 'url("https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg")'
           }}
         ></div>
       </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-rose-900/40 z-10"></div>
+      {/* Enhanced Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-navy-900/60 via-slate-800/40 to-ocean-900/60 z-10"></div>
 
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-12 shadow-2xl max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-playfair font-bold text-white mb-6 leading-tight">
+        <div className="glass-card rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl max-w-5xl mx-auto animate-scale-in">
+          <h1 className="font-playfair font-bold text-white mb-4 sm:mb-6 leading-tight animate-fade-in">
             Minőség mindenek 
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-rose-300">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-ocean-300 to-navy-300 animate-delayed">
               felett
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed font-light">
-              Fedezd fel a termék katalógusunkat, ahol a prémium minőség és a megfizethető árak találkoznak és vedd meg ma.
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 leading-relaxed font-light animate-fade-in animate-delayed-2 px-2">
+            Fedezd fel a termék katalógusunkat, ahol a prémium minőség és a megfizethető árak találkoznak. Vásárolj még ma!
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-            <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center space-x-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 animate-fade-in animate-delayed-3">
+            <button className="w-full sm:w-auto bg-gradient-to-r from-navy-500 to-ocean-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:from-navy-600 hover:to-ocean-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center space-x-2 animate-pulse-glow">
               <ShoppingBag className="w-5 h-5" />
-              <span>Vásárlás</span>
+              <span>Vásárlás most</span>
             </button>
             
-            <button className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/30 transition-all duration-300 border border-white/30 flex items-center space-x-2">
+            <button className="w-full sm:w-auto glass-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/20 transition-all duration-300 border border-white/30 flex items-center justify-center space-x-2 hover:scale-105">
               <Play className="w-5 h-5" />
-              <span>Nézd meg történetünket</span>
+              <span className="hidden sm:inline">Nézd meg történetünket</span>
+              <span className="sm:hidden">Történetünk</span>
             </button>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <div className="text-3xl font-bold mb-2">100+</div>
-              <div className="text-white/80">Prémium termékek</div>
+          <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 text-white">
+            <div className="glass-card rounded-2xl p-4 sm:p-6 border border-white/20 hover-lift animate-fade-in">
+              <div className="text-2xl sm:text-3xl font-bold mb-2 text-ocean-300">100+</div>
+              <div className="text-white/80 text-sm sm:text-base">Prémium termékek</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <div className="text-3xl font-bold mb-2">100%</div>
-              <div className="text-white/80">Eredetiség</div>
+            <div className="glass-card rounded-2xl p-4 sm:p-6 border border-white/20 hover-lift animate-fade-in animate-delayed">
+              <div className="text-2xl sm:text-3xl font-bold mb-2 text-navy-300">100%</div>
+              <div className="text-white/80 text-sm sm:text-base">Eredetiség</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <div className="text-3xl font-bold mb-2">5★</div>
-              <div className="text-white/80">Vásárlói értékelés</div>
+            <div className="glass-card rounded-2xl p-4 sm:p-6 border border-white/20 hover-lift animate-fade-in animate-delayed-2">
+              <div className="text-2xl sm:text-3xl font-bold mb-2 text-ocean-300">5★</div>
+              <div className="text-white/80 text-sm sm:text-base">Vásárlói értékelés</div>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-navy-400/20 to-ocean-400/20 rounded-full animate-float hidden lg:block"></div>
+        <div className="absolute bottom-20 right-10 w-16 h-16 bg-gradient-to-br from-ocean-400/20 to-navy-400/20 rounded-full animate-float animate-delayed hidden lg:block"></div>
       </div>
     </section>
   );

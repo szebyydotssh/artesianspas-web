@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sage-50 to-rose-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-navy-900 to-ocean-900">
       <Header />
       <Hero />
       <Products />

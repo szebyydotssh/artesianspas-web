@@ -10,38 +10,40 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { label: "About Us", href: "#about" },
-    { label: "Products", href: "#products" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Contact", href: "#contact" },
-    { label: "Shop Online", href: "#" }
+    { label: "Rólunk", href: "#about" },
+    { label: "Termékek", href: "#products" },
+    { label: "Galéria", href: "#gallery" },
+    { label: "Kapcsolat", href: "#contact" },
+    { label: "Online vásárlás", href: "#" }
   ];
 
   const productCategories = [
-    { label: "Skincare", href: "#" },
-    { label: "Aromatherapy", href: "#" },
-    { label: "Bath & Body", href: "#" },
-    { label: "Wellness Tools", href: "#" },
-    { label: "Gift Sets", href: "#" }
+    { label: "M Széria", href: "#" },
+    { label: "A Széria", href: "#" },
+    { label: "X Széria", href: "#" },
+    { label: "Swim Széria", href: "#" },
+    { label: "STIL Széria", href: "#" }
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-sage-800 to-sage-900 text-white">
+    <footer className="bg-gradient-to-br from-slate-950 via-navy-950 to-ocean-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-12 sm:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 animate-fade-in">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-sage-400 to-sage-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-playfair font-bold text-lg">S</span>
-              </div>
-              <span className="text-2xl font-playfair font-bold">Serenity Spa</span>
+              <img 
+                src="https://styles.mediavalet.net/logos/BullfrogSpas_02142022.png" 
+                width="150" 
+                alt="Bullfrog Spas" 
+                className="brightness-0 invert"
+              />
             </div>
             
-            <p className="text-sage-200 mb-6 leading-relaxed">
-              Premium spa products crafted with love and natural ingredients. 
-              Transform your daily routine into a luxurious wellness ritual.
+            <p className="text-white/70 mb-6 leading-relaxed text-sm sm:text-base">
+              Prémium spa termékek szeretettel és természetes összetevőkkel készítve. 
+              Alakítsd át napi rutinod luxus wellness rituálévá.
             </p>
 
             {/* Social Links */}
@@ -51,7 +53,7 @@ const Footer = () => {
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className="bg-white/10 backdrop-blur-sm rounded-full p-3 hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                  className="glass-button rounded-full p-3 hover:bg-white/20 transition-all duration-300 hover:scale-110"
                 >
                   {social.icon}
                 </a>
@@ -60,16 +62,16 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-xl font-playfair font-semibold mb-6">Quick Links</h4>
+          <div className="animate-fade-in animate-delayed">
+            <h4 className="text-lg sm:text-xl font-playfair font-semibold mb-6">Gyors linkek</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-sage-200 hover:text-white transition-colors duration-200 flex items-center group"
+                    className="text-white/70 hover:text-white transition-colors duration-200 flex items-center group text-sm sm:text-base"
                   >
-                    <span className="w-0 group-hover:w-2 h-0.5 bg-sage-400 mr-0 group-hover:mr-2 transition-all duration-200"></span>
+                    <span className="w-0 group-hover:w-2 h-0.5 bg-ocean-400 mr-0 group-hover:mr-2 transition-all duration-200"></span>
                     {link.label}
                   </a>
                 </li>
@@ -78,16 +80,16 @@ const Footer = () => {
           </div>
 
           {/* Product Categories */}
-          <div>
-            <h4 className="text-xl font-playfair font-semibold mb-6">Shop Categories</h4>
+          <div className="animate-fade-in animate-delayed-2">
+            <h4 className="text-lg sm:text-xl font-playfair font-semibold mb-6">Termék kategóriák</h4>
             <ul className="space-y-3">
               {productCategories.map((category, index) => (
                 <li key={index}>
                   <a
                     href={category.href}
-                    className="text-sage-200 hover:text-white transition-colors duration-200 flex items-center group"
+                    className="text-white/70 hover:text-white transition-colors duration-200 flex items-center group text-sm sm:text-base"
                   >
-                    <span className="w-0 group-hover:w-2 h-0.5 bg-sage-400 mr-0 group-hover:mr-2 transition-all duration-200"></span>
+                    <span className="w-0 group-hover:w-2 h-0.5 bg-navy-400 mr-0 group-hover:mr-2 transition-all duration-200"></span>
                     {category.label}
                   </a>
                 </li>
@@ -96,42 +98,42 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h4 className="text-xl font-playfair font-semibold mb-6">Contact Info</h4>
+          <div className="animate-fade-in animate-delayed-3">
+            <h4 className="text-lg sm:text-xl font-playfair font-semibold mb-6">Kapcsolat</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-sage-400 mt-1 flex-shrink-0" />
-                <div className="text-sage-200">
-                  <p>123 Wellness Avenue</p>
-                  <p>Serenity Hills, SH 12345</p>
+                <MapPin className="w-5 h-5 text-ocean-400 mt-1 flex-shrink-0" />
+                <div className="text-white/70 text-sm sm:text-base">
+                  <p>Wellness utca 123</p>
+                  <p>Budapest, 1234</p>
                 </div>
               </div>
               
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-sage-400 flex-shrink-0" />
-                <a href="tel:+15551234567" className="text-sage-200 hover:text-white transition-colors">
-                  +1 (555) 123-4567
+                <Phone className="w-5 h-5 text-ocean-400 flex-shrink-0" />
+                <a href="tel:+3612345678" className="text-white/70 hover:text-white transition-colors text-sm sm:text-base">
+                  +36 1 234 5678
                 </a>
               </div>
               
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-sage-400 flex-shrink-0" />
-                <a href="mailto:info@serenityspa.com" className="text-sage-200 hover:text-white transition-colors">
-                  info@serenityspa.com
+                <Mail className="w-5 h-5 text-ocean-400 flex-shrink-0" />
+                <a href="mailto:info@bullfrogspas.hu" className="text-white/70 hover:text-white transition-colors text-sm sm:text-base">
+                  info@bullfrogspas.hu
                 </a>
               </div>
             </div>
 
             {/* Newsletter Signup */}
             <div className="mt-8">
-              <h5 className="font-semibold mb-3">Stay Updated</h5>
+              <h5 className="font-semibold mb-3 text-sm sm:text-base">Maradj naprakész</h5>
               <div className="flex">
                 <input
                   type="email"
-                  placeholder="Your email"
-                  className="flex-1 px-4 py-2 bg-white/10 border border-white/20 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-sage-400 text-white placeholder-sage-300"
+                  placeholder="Email címed"
+                  className="flex-1 px-4 py-2 glass-button rounded-l-lg focus:outline-none focus:ring-2 focus:ring-ocean-400 text-white placeholder-white/50 text-sm"
                 />
-                <button className="bg-sage-500 hover:bg-sage-600 px-4 py-2 rounded-r-lg transition-colors">
+                <button className="bg-gradient-to-r from-navy-500 to-ocean-500 hover:from-navy-600 hover:to-ocean-600 px-4 py-2 rounded-r-lg transition-colors">
                   <Mail className="w-4 h-4" />
                 </button>
               </div>
@@ -140,17 +142,17 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-8 border-t border-sage-700">
+        <div className="py-6 sm:py-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sage-300 text-sm">
-              © 2024 Serenity Spa Products. All rights reserved.
+            <div className="text-white/60 text-sm text-center md:text-left">
+              © 2024 Bullfrog Spas Magyarország. Minden jog fenntartva.
             </div>
             
-            <div className="flex space-x-6 text-sm text-sage-300">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-white transition-colors">Shipping Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Returns</a>
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-white/60">
+              <a href="#" className="hover:text-white transition-colors">Adatvédelmi irányelvek</a>
+              <a href="#" className="hover:text-white transition-colors">Felhasználási feltételek</a>
+              <a href="#" className="hover:text-white transition-colors">Szállítási feltételek</a>
+              <a href="#" className="hover:text-white transition-colors">Visszaküldés</a>
             </div>
           </div>
         </div>
