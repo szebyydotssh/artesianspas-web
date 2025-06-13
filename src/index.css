@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Bold Italic Sans Serif Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -65,6 +68,19 @@ html {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
+
+  /* Bold Italic Font Utility */
+  .font-bold-italic {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .text-bold-italic {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
 }
 
 /* Enhanced Animation utilities */
@@ -95,7 +111,7 @@ html {
   }
 }
 
-/* Typography enhancements */
+/* Typography enhancements with Bold Italic Sans Serif */
 @layer base {
   body {
     font-feature-settings: "liga" 1, "kern" 1;
@@ -104,19 +120,30 @@ html {
     -moz-osx-font-smoothing: grayscale;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
     min-height: 100vh;
+    font-family: 'Roboto', 'Inter', sans-serif;
   }
 
-  /* Mobile-first responsive text */
+  /* Mobile-first responsive text with Bold Italic styling */
   h1 {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold-italic;
   }
   
   h2 {
-    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold-italic;
   }
   
   h3 {
-    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold-italic;
+  }
+
+  /* Enhanced button styling */
+  .btn-primary {
+    @apply font-bold-italic;
+  }
+
+  /* Navigation styling */
+  nav a {
+    @apply text-bold-italic;
   }
 }
 
@@ -137,4 +164,11 @@ html {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
   background-size: 200px 100%;
   animation: shimmer 1.5s infinite;
+}
+
+/* Preloader specific styles */
+.preloader-content {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-style: italic;
 }

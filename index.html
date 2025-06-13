@@ -8,10 +8,139 @@
     <meta name="description" content="Fedezd fel a Bullfrog Spas prémium spa termék kollekciót. Minőségi jacuzzik és wellness megoldások otthonodba.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <style>
+      /* Preloader styles */
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+      }
+      
+      #preloader.fade-out {
+        opacity: 0;
+        visibility: hidden;
+      }
+      
+      .preloader-logo {
+        width: 200px;
+        height: auto;
+        margin-bottom: 2rem;
+        animation: logoFloat 2s ease-in-out infinite;
+      }
+      
+      .preloader-spinner {
+        width: 60px;
+        height: 60px;
+        border: 3px solid rgba(99, 102, 241, 0.3);
+        border-top: 3px solid #6366f1;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1rem;
+      }
+      
+      .preloader-text {
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        font-style: italic;
+        font-size: 1.2rem;
+        text-align: center;
+        opacity: 0.8;
+        animation: textPulse 2s ease-in-out infinite;
+      }
+      
+      .preloader-progress {
+        width: 200px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        margin-top: 1rem;
+        overflow: hidden;
+      }
+      
+      .preloader-progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #6366f1, #0ea5e9);
+        border-radius: 2px;
+        animation: progressFill 3s ease-out forwards;
+        transform: translateX(-100%);
+      }
+      
+      @keyframes logoFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      @keyframes textPulse {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 1; }
+      }
+      
+      @keyframes progressFill {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(0%); }
+      }
+      
+      /* Hide main content during loading */
+      #root {
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+      }
+      
+      #root.loaded {
+        opacity: 1;
+      }
+    </style>
   </head>
   <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <img 
+        src="https://styles.mediavalet.net/logos/BullfrogSpas_02142022.png" 
+        alt="Bullfrog Spas" 
+        class="preloader-logo"
+        style="filter: brightness(0) invert(1);"
+      />
+      <div class="preloader-spinner"></div>
+      <div class="preloader-text">Wellness élmény betöltése...</div>
+      <div class="preloader-progress">
+        <div class="preloader-progress-bar"></div>
+      </div>
+    </div>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <script>
+      // Preloader logic
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const preloader = document.getElementById('preloader');
+          const root = document.getElementById('root');
+          
+          preloader.classList.add('fade-out');
+          root.classList.add('loaded');
+          
+          setTimeout(function() {
+            preloader.style.display = 'none';
+          }, 500);
+        }, 2000); // Show preloader for at least 2 seconds
+      });
+    </script>
   </body>
 </html>

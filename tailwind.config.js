@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'sans': ['Roboto', 'Inter', 'system-ui', 'sans-serif'],
         'playfair': ['Playfair Display', 'serif'],
+        'bold-italic': ['Roboto', 'sans-serif'],
       },
       colors: {
         navy: {
@@ -58,6 +59,7 @@ export default {
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite alternate',
         'scale-in': 'scaleIn 0.6s ease-out',
         'whoosh': 'whoosh 0.6s ease-out',
+        'preloader-spin': 'spin 1s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -98,6 +100,10 @@ export default {
           '0%': { transform: 'translateX(-100px) scale(0.8)', opacity: '0' },
           '60%': { transform: 'translateX(10px) scale(1.05)', opacity: '0.8' },
           '100%': { transform: 'translateX(0) scale(1)', opacity: '1' },
+        },
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
       },
       backdropBlur: {
