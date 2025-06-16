@@ -3,9 +3,11 @@ import {
   Star, ShoppingCart, Heart, Eye,
   Users, Layout, ShieldCheck, Droplet, Ruler
 } from 'lucide-react';
+import ProductDetail from './ProductDetail';
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
   const categories = [
     { id: 'all', label: 'Összes' },
@@ -22,12 +24,37 @@ const Products = () => {
       name: "M9",
       category: "mseries",
       image: "https://www.bullfrogspas.com/wp-content/uploads/2024/05/M9_top-down.png",
+      images: [
+        "https://www.bullfrogspas.com/wp-content/uploads/2024/05/M9_top-down.png",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg"
+      ],
+      seats: 10,
+      loungeSeats: 3,
+      jetpaks: 7,
+      dimensions: "2.79m x 2.39m x 0.96m",
+      waterCapacity: "1,800 liter",
+      emptyWeight: "450 kg",
+      fullWeight: "2,250 kg",
+      electrical: "230V, 32A",
+      heater: "3kW Titanium",
+      insulation: "FullFoam™",
+      warranty: "7 év szerkezet, 2 év alkatrész",
+      description: "A M9 a Bullfrog Spas M szériájának zászlóshajója, amely 10 személynek biztosít luxus spa élményt. 3 lounge ülésével és 7 cserélhető JetPak rendszerével tökéletes választás nagyobb családok és baráti társaságok számára.",
       features: [
         { icon: Users, label: "10 Ülés" },
         { icon: Layout, label: "3 Lounge Ülés" },
         { icon: ShieldCheck, label: "7 JetPak" },
         { icon: Droplet, label: "Simplicity Water Care" },
         { icon: Ruler, label: "2.79m x 2.39m x 0.96m" }
+      ],
+      highlights: [
+        "Legnagyobb kapacitás az M szériában",
+        "Három különböző lounge pozíció",
+        "Prémium JetPak™ masszázs rendszer",
+        "Energiahatékony FullFoam™ szigetelés",
+        "Simplicity™ automatikus vízkezelés"
       ]
     },
     {
@@ -35,12 +62,37 @@ const Products = () => {
       name: "M8",
       category: "mseries",
       image: "https://www.bullfrogspas.com/wp-content/uploads/2024/05/M8-top-down.png",
+      images: [
+        "https://www.bullfrogspas.com/wp-content/uploads/2024/05/M8-top-down.png",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg"
+      ],
+      seats: 9,
+      loungeSeats: 2,
+      jetpaks: 6,
+      dimensions: "2.39m x 2.39m x 0.96m",
+      waterCapacity: "1,650 liter",
+      emptyWeight: "420 kg",
+      fullWeight: "2,070 kg",
+      electrical: "230V, 32A",
+      heater: "3kW Titanium",
+      insulation: "FullFoam™",
+      warranty: "7 év szerkezet, 2 év alkatrész",
+      description: "A M8 tökéletes egyensúlyt teremt a méret és a funkcionalitás között. 9 ülésével és 2 lounge pozíciójával ideális választás közepes méretű családok számára, akik nem szeretnének kompromisszumot kötni a luxus terén.",
       features: [
         { icon: Users, label: "9 Ülés" },
         { icon: Layout, label: "2 Lounge Ülés" },
         { icon: ShieldCheck, label: "6 JetPak" },
         { icon: Droplet, label: "Simplicity Total Water Care" },
         { icon: Ruler, label: "2.39m x 2.39m x 0.96m" }
+      ],
+      highlights: [
+        "Kompakt, mégis tágas design",
+        "Két ergonomikus lounge ülés",
+        "Hatékony JetPak™ elrendezés",
+        "Optimalizált vízforgalom",
+        "Prémium LED világítás"
       ]
     },
     {
@@ -48,12 +100,37 @@ const Products = () => {
       name: "M7",
       category: "mseries",
       image: "https://www.bullfrogspas.com/wp-content/uploads/2024/05/M7-top-down.png",
+      images: [
+        "https://www.bullfrogspas.com/wp-content/uploads/2024/05/M7-top-down.png",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg"
+      ],
+      seats: 9,
+      loungeSeats: 0,
+      jetpaks: 6,
+      dimensions: "2.31m x 2.31m x 0.94m",
+      waterCapacity: "1,500 liter",
+      emptyWeight: "380 kg",
+      fullWeight: "1,880 kg",
+      electrical: "230V, 32A",
+      heater: "3kW Titanium",
+      insulation: "FullFoam™",
+      warranty: "7 év szerkezet, 2 év alkatrész",
+      description: "A M7 a társasági spa élmény bajnoka. 9 hagyományos ülésével minden vendég kényelmesen elfér, míg a kompakt design kisebb teraszokra és udvarokra is tökéletesen illeszkedik.",
       features: [
         { icon: Users, label: "9 Ülés" },
         { icon: Layout, label: "0 Lounge Ülés" },
         { icon: ShieldCheck, label: "6 JetPak" },
         { icon: Droplet, label: "Simplicity Total Water Care" },
         { icon: Ruler, label: "2.31m x 2.31m x 0.94m" }
+      ],
+      highlights: [
+        "Társasági használatra optimalizált",
+        "Kompakt, négyzetes design",
+        "Egyenletes JetPak™ eloszlás",
+        "Könnyű karbantartás",
+        "Kiváló ár-érték arány"
       ]
     },
     {
@@ -61,12 +138,37 @@ const Products = () => {
       name: "M6",
       category: "mseries",
       image: "https://www.bullfrogspas.com/wp-content/uploads/2024/05/M6-top-down.png",
+      images: [
+        "https://www.bullfrogspas.com/wp-content/uploads/2024/05/M6-top-down.png",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg"
+      ],
+      seats: 7,
+      loungeSeats: 0,
+      jetpaks: 4,
+      dimensions: "2.31m x 2.03m x 0.86m",
+      waterCapacity: "1,300 liter",
+      emptyWeight: "340 kg",
+      fullWeight: "1,640 kg",
+      electrical: "230V, 25A",
+      heater: "3kW Titanium",
+      insulation: "FullFoam™",
+      warranty: "7 év szerkezet, 2 év alkatrész",
+      description: "A M6 a tökéletes belépő modell az M szériába. Kompakt mérete ellenére 7 személynek biztosít kényelmes helyet, míg a 4 JetPak rendszer garantálja a prémium masszázs élményt.",
       features: [
         { icon: Users, label: "7 Ülés" },
         { icon: Layout, label: "0 Lounge Ülés" },
         { icon: ShieldCheck, label: "4 JetPak" },
         { icon: Droplet, label: "Simplicity Total Water Care" },
         { icon: Ruler, label: "2.31m x 2.03m x 0.86m" }
+      ],
+      highlights: [
+        "Kompakt és hatékony design",
+        "Kiváló kezdő modell",
+        "Alacsony üzemeltetési költség",
+        "Gyors felfűtés",
+        "Könnyű telepítés"
       ]
     },
     {
@@ -74,12 +176,37 @@ const Products = () => {
       name: "A9L",
       category: "aseries",
       image: "https://www.bullfrogspas.com/wp-content/uploads/2024/05/A9L_Top-Down.png",
+      images: [
+        "https://www.bullfrogspas.com/wp-content/uploads/2024/05/A9L_Top-Down.png",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg"
+      ],
+      seats: 9,
+      loungeSeats: 1,
+      jetpaks: 7,
+      dimensions: "2.77m x 2.39m x 0.97m",
+      waterCapacity: "1,750 liter",
+      emptyWeight: "430 kg",
+      fullWeight: "2,180 kg",
+      electrical: "230V, 32A",
+      heater: "3kW Titanium",
+      insulation: "FullFoam™",
+      warranty: "7 év szerkezet, 2 év alkatrész",
+      description: "Az A9L az A széria csúcsmodellje, amely egyesíti a luxust és a funkcionalitást. Az egyedi lounge ülés és a 7 JetPak rendszer garantálja a személyre szabott wellness élményt.",
       features: [
         { icon: Users, label: "9 Ülés" },
         { icon: Layout, label: "1 Lounge Ülés" },
         { icon: ShieldCheck, label: "7 JetPak" },
         { icon: Droplet, label: "Simplicity Total Water Care" },
         { icon: Ruler, label: "2.77m x 2.39m x 0.97m" }
+      ],
+      highlights: [
+        "A széria legnagyobb modellje",
+        "Luxus lounge ülés",
+        "Maximális JetPak™ kapacitás",
+        "Prémium felszereltség",
+        "Kiváló ár-érték arány"
       ]
     },
     {
@@ -87,12 +214,37 @@ const Products = () => {
       name: "A8",
       category: "aseries",
       image: "https://www.bullfrogspas.com/wp-content/uploads/2024/05/A8_Top-Down.png",
+      images: [
+        "https://www.bullfrogspas.com/wp-content/uploads/2024/05/A8_Top-Down.png",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg",
+        "https://cdn.mediavalet.com/usca/bullfrogspas/mLzabEo9NkKqhpYsGljN2A/ecDVaPHmj066iWT7ycdBjw/XLarge/M-Series_Solitude-Timber_Lifestyle.jpeg"
+      ],
+      seats: 8,
+      loungeSeats: 0,
+      jetpaks: 6,
+      dimensions: "2.39m x 2.39m x 0.97m",
+      waterCapacity: "1,600 liter",
+      emptyWeight: "400 kg",
+      fullWeight: "2,000 kg",
+      electrical: "230V, 32A",
+      heater: "3kW Titanium",
+      insulation: "FullFoam™",
+      warranty: "7 év szerkezet, 2 év alkatrész",
+      description: "Az A8 a tökéletes választás azok számára, akik kiváló minőséget keresnek megfizethető áron. 8 ülésével és 6 JetPak rendszerével minden családtag megtalálja a számára ideális masszázs élményt.",
       features: [
         { icon: Users, label: "8 Ülés" },
         { icon: Layout, label: "0 Lounge Ülés" },
         { icon: ShieldCheck, label: "4-6 JetPak" },
         { icon: Droplet, label: "Simplicity Total Water Care" },
         { icon: Ruler, label: "2.39m x 2.39m x 0.97m" }
+      ],
+      highlights: [
+        "Kiváló ár-érték arány",
+        "Flexibilis JetPak™ konfiguráció",
+        "Négyzetes, praktikus design",
+        "Közepes méretű családoknak",
+        "Egyszerű karbantartás"
       ]
     }
   ];
@@ -100,6 +252,15 @@ const Products = () => {
   const filteredProducts = selectedCategory === 'all' 
     ? products 
     : products.filter(product => product.category === selectedCategory);
+
+  if (selectedProduct) {
+    return (
+      <ProductDetail 
+        product={selectedProduct} 
+        onBack={() => setSelectedProduct(null)} 
+      />
+    );
+  }
 
   return (
     <section id="products" className="py-12 sm:py-20 bg-gradient-to-br from-slate-900 via-navy-900 to-ocean-900">
@@ -157,7 +318,10 @@ const Products = () => {
                   <button className="glass-button rounded-full p-2 text-white hover:bg-white/30 transition-all duration-300 hover:scale-110">
                     <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
-                  <button className="glass-button rounded-full p-2 text-white hover:bg-white/30 transition-all duration-300 hover:scale-110">
+                  <button 
+                    onClick={() => setSelectedProduct(product)}
+                    className="glass-button rounded-full p-2 text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
+                  >
                     <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 </div>
@@ -174,8 +338,12 @@ const Products = () => {
                   {product.name}
                 </h3>
                 
+                <p className="text-white/70 text-sm mb-4 leading-relaxed line-clamp-3">
+                  {product.description}
+                </p>
+                
                 <ul className="text-white/80 text-sm space-y-2 mb-4 sm:mb-6">
-                  {product.features?.map((feature, featureIndex) => (
+                  {product.features?.slice(0, 3).map((feature: any, featureIndex: number) => (
                     <li key={featureIndex} className="flex items-center gap-2 sm:gap-3">
                       <feature.icon className="w-4 h-4 text-ocean-400 flex-shrink-0" />
                       <span className="text-xs sm:text-sm">{feature.label}</span>
@@ -183,7 +351,10 @@ const Products = () => {
                   ))}
                 </ul>
 
-                <button className="w-full bg-gradient-to-r from-navy-500 to-ocean-500 text-white py-2 sm:py-3 rounded-full font-semibold hover:from-navy-600 hover:to-ocean-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base">
+                <button 
+                  onClick={() => setSelectedProduct(product)}
+                  className="w-full bg-gradient-to-r from-navy-500 to-ocean-500 text-white py-2 sm:py-3 rounded-full font-semibold hover:from-navy-600 hover:to-ocean-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base"
+                >
                   Részletek megtekintése
                 </button>
               </div>
