@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Star, Heart, Share2, ShoppingCart, Check, Info, Users, Layout, ShieldCheck, Droplet, Ruler, Zap, Thermometer, Volume2 } from 'lucide-react';
 
 interface ProductDetailProps {
@@ -10,6 +10,15 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedColor, setSelectedColor] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger entrance animation
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const colors = [
     { name: 'Timber', color: '#8B4513', image: product.images?.[0] || product.image },
@@ -86,109 +95,135 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-navy-900 to-ocean-900 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Back Button */}
-        <button
-          onClick={onBack}
-          className="flex items-center space-x-2 text-white hover:text-ocean-300 transition-colors mb-8 glass-button px-4 py-2 rounded-full"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          <span>Vissza a termékekhez</span>
-        </button>
+    <div className={`min-h-screen bg-gradient-to-br from-slate-900 via-navy-900 to-ocean-900 py-8 transition-all duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Animated Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className={`absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-navy-400/10 to-ocean-400/10 rounded-full transition-all duration-2000 ${isLoaded ? 'animate-float opacity-100' : 'opacity-0 translate-y-10'}`}></div>
+        <div className={`absolute bottom-20 right-10 w-24 h-24 bg-gradient-to-br from-ocean-400/10 to-purple-400/10 rounded-full transition-all duration-2000 delay-300 ${isLoaded ? 'animate-float opacity-100' : 'opacity-0 translate-y-10'}`}></div>
+        <div className={`absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-br from-purple-400/10 to-navy-400/10 rounded-full transition-all duration-2000 delay-500 ${isLoaded ? 'animate-float opacity-100' : 'opacity-0 translate-y-10'}`}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Animated Back Button */}
+        <div className={`transition-all duration-800 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+          <button
+            onClick={onBack}
+            className="flex items-center space-x-2 text-white hover:text-ocean-300 transition-all duration-300 mb-8 glass-button px-6 py-3 rounded-full font-medium font-modern hover:scale-105 hover:shadow-lg group"
+          >
+            <ArrowLeft className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
+            <span>Vissza a termékekhez</span>
+          </button>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Product Images */}
-          <div className="space-y-6">
-            {/* Main Image */}
-            <div className="glass-card rounded-3xl p-4 shadow-lg">
-              <img
-                src={colors[selectedColor].image}
-                alt={product.name}
-                className="w-full h-96 object-contain rounded-2xl"
-              />
+          {/* Animated Product Images */}
+          <div className={`space-y-6 transition-all duration-1000 delay-200 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
+            {/* Main Image with Zoom Effect */}
+            <div className="glass-card rounded-3xl p-4 shadow-lg overflow-hidden group">
+              <div className="relative overflow-hidden rounded-2xl">
+                <img
+                  src={colors[selectedColor].image}
+                  alt={product.name}
+                  className="w-full h-96 object-contain transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Overlay Effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
             </div>
 
-            {/* Color Selection */}
-            <div className="glass-card rounded-2xl p-6">
-              <h4 className="text-white font-semibold mb-4">Színválasztás</h4>
+            {/* Animated Color Selection */}
+            <div className={`glass-card rounded-2xl p-6 transition-all duration-800 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h4 className="text-white font-semibold font-modern mb-4">Színválasztás</h4>
               <div className="flex space-x-4">
                 {colors.map((color, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedColor(index)}
-                    className={`w-12 h-12 rounded-full border-2 transition-all duration-300 ${
+                    className={`w-12 h-12 rounded-full border-2 transition-all duration-500 hover:scale-110 ${
                       selectedColor === index
-                        ? 'border-ocean-400 scale-110'
+                        ? 'border-ocean-400 scale-110 shadow-lg shadow-ocean-400/30'
                         : 'border-white/30 hover:border-white/50'
                     }`}
-                    style={{ backgroundColor: color.color }}
+                    style={{ 
+                      backgroundColor: color.color,
+                      animationDelay: `${index * 100}ms`
+                    }}
                     title={color.name}
                   />
                 ))}
               </div>
-              <p className="text-white/70 text-sm mt-2">{colors[selectedColor].name}</p>
+              <p className={`text-white/70 text-sm mt-2 font-modern transition-all duration-300 ${selectedColor !== null ? 'opacity-100' : 'opacity-0'}`}>
+                {colors[selectedColor].name}
+              </p>
             </div>
           </div>
 
-          {/* Product Info */}
-          <div className="space-y-6">
-            {/* Header */}
-            <div className="glass-card rounded-3xl p-8">
+          {/* Animated Product Info */}
+          <div className={`space-y-6 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
+            {/* Header with Staggered Animation */}
+            <div className="glass-card rounded-3xl p-8 overflow-hidden">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h1 className="text-4xl font-playfair font-bold text-white mb-2">
+                  <h1 className={`text-4xl font-display font-bold text-white mb-2 transition-all duration-800 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                     Bullfrog Spas {product.name}
                   </h1>
-                  <div className="flex items-center space-x-2 mb-4">
+                  <div className={`flex items-center space-x-2 mb-4 transition-all duration-800 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                     <div className="flex items-center">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                        <Star 
+                          key={i} 
+                          className={`w-5 h-5 text-yellow-400 fill-current transition-all duration-300`}
+                          style={{ animationDelay: `${i * 100 + 700}ms` }}
+                        />
                       ))}
                     </div>
-                    <span className="text-white/70">(127 értékelés)</span>
+                    <span className="text-white/70 font-modern">(127 értékelés)</span>
                   </div>
                 </div>
-                <div className="flex space-x-2">
+                <div className={`flex space-x-2 transition-all duration-800 delay-700 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}>
                   <button
                     onClick={() => setIsWishlisted(!isWishlisted)}
-                    className={`glass-button rounded-full p-3 transition-all duration-300 ${
-                      isWishlisted ? 'text-red-400' : 'text-white hover:text-red-400'
+                    className={`glass-button rounded-full p-3 transition-all duration-300 hover:scale-110 ${
+                      isWishlisted ? 'text-red-400 bg-red-400/10' : 'text-white hover:text-red-400'
                     }`}
                   >
-                    <Heart className={`w-6 h-6 ${isWishlisted ? 'fill-current' : ''}`} />
+                    <Heart className={`w-6 h-6 transition-all duration-300 ${isWishlisted ? 'fill-current scale-110' : ''}`} />
                   </button>
-                  <button className="glass-button rounded-full p-3 text-white hover:text-ocean-300 transition-colors">
+                  <button className="glass-button rounded-full p-3 text-white hover:text-ocean-300 transition-all duration-300 hover:scale-110">
                     <Share2 className="w-6 h-6" />
                   </button>
                 </div>
               </div>
 
-              <p className="text-white/80 text-lg leading-relaxed mb-6">
+              <p className={`text-white/80 text-lg leading-relaxed mb-6 font-modern transition-all duration-800 delay-800 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 A {product.name} a Bullfrog Spas M szériájának csúcsmodellje, amely egyesíti a luxust, 
                 a technológiát és a terápiás hatásokat. Ez a prémium spa tökéletes választás azok számára, 
                 akik a legmagasabb szintű relaxációt és wellness élményt keresik otthonukban.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-gradient-to-r from-navy-500 to-ocean-500 text-white py-4 rounded-full font-semibold text-lg hover:from-navy-600 hover:to-ocean-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center space-x-2">
+              <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-800 delay-900 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <button className="flex-1 bg-gradient-to-r from-navy-500 to-ocean-500 text-white py-4 rounded-full font-semibold font-modern text-lg hover:from-navy-600 hover:to-ocean-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center space-x-2 btn-trendy">
                   <ShoppingCart className="w-5 h-5" />
                   <span>Ajánlatkérés</span>
                 </button>
-                <button className="glass-button text-white py-4 px-8 rounded-full font-semibold hover:bg-white/20 transition-all duration-300 border border-white/30">
+                <button className="glass-button text-white py-4 px-8 rounded-full font-semibold font-modern hover:bg-white/20 transition-all duration-300 border border-white/30 hover:scale-105">
                   Bemutóterem látogatás
                 </button>
               </div>
             </div>
 
-            {/* Key Features */}
-            <div className="glass-card rounded-3xl p-8">
-              <h3 className="text-2xl font-playfair font-bold text-white mb-6">Főbb jellemzők</h3>
+            {/* Animated Key Features */}
+            <div className={`glass-card rounded-3xl p-8 transition-all duration-800 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h3 className="text-2xl font-display font-bold text-white mb-6">Főbb jellemzők</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {product.features?.map((feature: any, index: number) => (
-                  <div key={index} className="flex items-center space-x-3">
+                  <div 
+                    key={index} 
+                    className={`flex items-center space-x-3 transition-all duration-500 hover:scale-105`}
+                    style={{ animationDelay: `${index * 100 + 1100}ms` }}
+                  >
                     <feature.icon className="w-5 h-5 text-ocean-400 flex-shrink-0" />
-                    <span className="text-white/80 text-sm">{feature.label}</span>
+                    <span className="text-white/80 text-sm font-modern">{feature.label}</span>
                   </div>
                 ))}
               </div>
@@ -196,27 +231,28 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
           </div>
         </div>
 
-        {/* Detailed Features */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Animated Detailed Features */}
+        <div className={`mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-1000 delay-1200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           {features.map((feature, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover-lift"
+              className={`glass-card rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover-lift card-hover`}
+              style={{ animationDelay: `${index * 150 + 1300}ms` }}
             >
-              <div className="text-ocean-400 mb-4">{feature.icon}</div>
-              <h4 className="text-xl font-semibold text-white mb-3">{feature.title}</h4>
-              <p className="text-white/70 leading-relaxed">{feature.description}</p>
+              <div className="text-ocean-400 mb-4 transition-transform duration-300 hover:scale-110">{feature.icon}</div>
+              <h4 className="text-xl font-semibold font-modern text-white mb-3">{feature.title}</h4>
+              <p className="text-white/70 leading-relaxed font-modern">{feature.description}</p>
             </div>
           ))}
         </div>
 
-        {/* JetPak System */}
-        <div className="mt-16">
+        {/* Animated JetPak System */}
+        <div className={`mt-16 transition-all duration-1000 delay-1500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-playfair font-bold text-white mb-4">
+            <h2 className="text-4xl font-display font-bold text-white mb-4">
               JetPak™ masszázs rendszer
             </h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+            <p className="text-xl text-white/80 max-w-3xl mx-auto font-modern">
               A forradalmi JetPak™ rendszer lehetővé teszi, hogy személyre szabd a masszázs élményt. 
               Válassz a különböző JetPak típusok közül, és alakítsd át spa-d egyedi igényeid szerint.
             </p>
@@ -226,16 +262,21 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
             {jetPaks.map((jetpak, index) => (
               <div
                 key={index}
-                className="glass-card rounded-3xl p-8 hover:shadow-xl transition-all duration-300 hover-lift"
+                className={`glass-card rounded-3xl p-8 hover:shadow-xl transition-all duration-500 hover-lift card-hover`}
+                style={{ animationDelay: `${index * 200 + 1600}ms` }}
               >
-                <h3 className="text-2xl font-playfair font-bold text-white mb-4">{jetpak.name}</h3>
-                <p className="text-white/80 mb-6 leading-relaxed">{jetpak.description}</p>
+                <h3 className="text-2xl font-display font-bold text-white mb-4">{jetpak.name}</h3>
+                <p className="text-white/80 mb-6 leading-relaxed font-modern">{jetpak.description}</p>
                 <div className="space-y-2">
-                  <h4 className="text-lg font-semibold text-ocean-300 mb-3">Előnyök:</h4>
+                  <h4 className="text-lg font-semibold font-modern text-ocean-300 mb-3">Előnyök:</h4>
                   {jetpak.benefits.map((benefit, benefitIndex) => (
-                    <div key={benefitIndex} className="flex items-center space-x-2">
+                    <div 
+                      key={benefitIndex} 
+                      className={`flex items-center space-x-2 transition-all duration-300`}
+                      style={{ animationDelay: `${benefitIndex * 100 + index * 200 + 1700}ms` }}
+                    >
                       <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                      <span className="text-white/70 text-sm">{benefit}</span>
+                      <span className="text-white/70 text-sm font-modern">{benefit}</span>
                     </div>
                   ))}
                 </div>
@@ -244,100 +285,97 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
           </div>
         </div>
 
-        {/* Technical Specifications */}
-        <div className="mt-16">
+        {/* Animated Technical Specifications */}
+        <div className={`mt-16 transition-all duration-1000 delay-1800 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="glass-card rounded-3xl p-8">
-            <h2 className="text-3xl font-playfair font-bold text-white mb-8 text-center">
+            <h2 className="text-3xl font-display font-bold text-white mb-8 text-center">
               Műszaki specifikációk
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {specifications.map((spec, index) => (
                 <div
                   key={index}
-                  className="flex justify-between items-center py-4 border-b border-white/10 last:border-b-0"
+                  className={`flex justify-between items-center py-4 border-b border-white/10 last:border-b-0 transition-all duration-300 hover:bg-white/5 rounded-lg px-4`}
+                  style={{ animationDelay: `${index * 100 + 1900}ms` }}
                 >
-                  <span className="text-white/70 font-medium">{spec.label}</span>
-                  <span className="text-white font-semibold">{spec.value}</span>
+                  <span className="text-white/70 font-medium font-modern">{spec.label}</span>
+                  <span className="text-white font-semibold font-modern">{spec.value}</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Installation & Delivery */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Animated Installation & Delivery */}
+        <div className={`mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-1000 delay-2000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="glass-card rounded-3xl p-8">
-            <h3 className="text-2xl font-playfair font-bold text-white mb-6">Telepítés és szállítás</h3>
+            <h3 className="text-2xl font-display font-bold text-white mb-6">Telepítés és szállítás</h3>
             <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <Check className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="text-white font-semibold">Ingyenes helyszíni felmérés</h4>
-                  <p className="text-white/70 text-sm">Szakértőink felmérik a telepítési helyet</p>
+              {[
+                { title: "Ingyenes helyszíni felmérés", desc: "Szakértőink felmérik a telepítési helyet" },
+                { title: "Professzionális telepítés", desc: "Képzett technikusaink végzik a telepítést" },
+                { title: "Beüzemelés és oktatás", desc: "Részletes használati útmutató és oktatás" }
+              ].map((item, index) => (
+                <div 
+                  key={index}
+                  className={`flex items-start space-x-3 transition-all duration-500 hover:translate-x-2`}
+                  style={{ animationDelay: `${index * 150 + 2100}ms` }}
+                >
+                  <Check className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="text-white font-semibold font-modern">{item.title}</h4>
+                    <p className="text-white/70 text-sm font-modern">{item.desc}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Check className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="text-white font-semibold">Professzionális telepítés</h4>
-                  <p className="text-white/70 text-sm">Képzett technikusaink végzik a telepítést</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Check className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="text-white font-semibold">Beüzemelés és oktatás</h4>
-                  <p className="text-white/70 text-sm">Részletes használati útmutató és oktatás</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
           <div className="glass-card rounded-3xl p-8">
-            <h3 className="text-2xl font-playfair font-bold text-white mb-6">Garancia és szerviz</h3>
+            <h3 className="text-2xl font-display font-bold text-white mb-6">Garancia és szerviz</h3>
             <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <ShieldCheck className="w-5 h-5 text-ocean-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="text-white font-semibold">7 év szerkezeti garancia</h4>
-                  <p className="text-white/70 text-sm">Teljes körű védelem a szerkezeti elemekre</p>
+              {[
+                { title: "7 év szerkezeti garancia", desc: "Teljes körű védelem a szerkezeti elemekre" },
+                { title: "2 év alkatrész garancia", desc: "Minden alkatrészre kiterjedő garancia" },
+                { title: "24/7 ügyfélszolgálat", desc: "Folyamatos támogatás és szerviz" }
+              ].map((item, index) => (
+                <div 
+                  key={index}
+                  className={`flex items-start space-x-3 transition-all duration-500 hover:translate-x-2`}
+                  style={{ animationDelay: `${index * 150 + 2250}ms` }}
+                >
+                  <ShieldCheck className="w-5 h-5 text-ocean-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="text-white font-semibold font-modern">{item.title}</h4>
+                    <p className="text-white/70 text-sm font-modern">{item.desc}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <ShieldCheck className="w-5 h-5 text-ocean-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="text-white font-semibold">2 év alkatrész garancia</h4>
-                  <p className="text-white/70 text-sm">Minden alkatrészre kiterjedő garancia</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <ShieldCheck className="w-5 h-5 text-ocean-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="text-white font-semibold">24/7 ügyfélszolgálat</h4>
-                  <p className="text-white/70 text-sm">Folyamatos támogatás és szerviz</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <div className="glass-card rounded-3xl p-12">
-            <h2 className="text-4xl font-playfair font-bold text-white mb-6">
-              Készen állsz a luxus spa élményre?
-            </h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Lépj kapcsolatba szakértőinkkel, és fedezd fel, hogyan alakíthatod át otthonod 
-              személyes wellness oázissá a {product.name} segítségével.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-navy-500 to-ocean-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-navy-600 hover:to-ocean-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                Ajánlatkérés most
-              </button>
-              <button className="glass-button text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all duration-300 border border-white/30">
-                Bemutóterem látogatás
-              </button>
+        {/* Animated CTA Section */}
+        <div className={`mt-16 text-center transition-all duration-1000 delay-2400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+          <div className="glass-card rounded-3xl p-12 relative overflow-hidden">
+            {/* Animated background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-navy-500/10 via-ocean-500/10 to-purple-500/10 animate-gradient-shift"></div>
+            <div className="relative z-10">
+              <h2 className="text-4xl font-display font-bold text-white mb-6">
+                Készen állsz a luxus spa élményre?
+              </h2>
+              <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto font-modern">
+                Lépj kapcsolatba szakértőinkkel, és fedezd fel, hogyan alakíthatod át otthonod 
+                személyes wellness oázissá a {product.name} segítségével.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="bg-gradient-to-r from-navy-500 to-ocean-500 text-white px-8 py-4 rounded-full font-semibold font-modern text-lg hover:from-navy-600 hover:to-ocean-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 btn-trendy">
+                  Ajánlatkérés most
+                </button>
+                <button className="glass-button text-white px-8 py-4 rounded-full font-semibold font-modern hover:bg-white/20 transition-all duration-300 border border-white/30 hover:scale-105">
+                  Bemutóterem látogatás
+                </button>
+              </div>
             </div>
           </div>
         </div>
