@@ -5,27 +5,27 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Kovács Mária",
-      role: "Bőrápolási szakértő",
-      content: "A rózsás arcszérum teljesen átalakította a bőrömet! Soha nem láttam ilyen drámai eredményeket egy természetes terméktől. A bőröm ragyog és hihetetlenül puha.",
+      role: "M9 Spa tulajdonos",
+      content: "A termékkel tökéletesen megvagyok elégedve, a BullFrog Spas pedig fantasztikus csapattal rendelkezik. A masszázsmedence élménye felülmúlhatatlan, és a termékek minősége kivételes.",
       rating: 5,
       image: "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      product: "Organikus rózsa arcszérum"
+      product: "M9 Spa masszázsmedence"
     },
     {
       name: "Nagy Péter",
-      role: "Wellness coach",
-      content: "Minden ügyfelemnek ajánlom ezeket a termékeket. A minőség kivételes és az eredmények magukért beszélnek. A levendula illóolaj szett az esti rutinom alapeleme lett.",
+      role: "A9L Spa tulajdonos",
+      content: "Mindenkinek ajánlom a BullFrog Spast. A termékek minősége és a csapat szakértelme páratlan.",
       rating: 5,
       image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      product: "Levendula illóolaj szett"
+      product: "A9L Spa masszázsmedence"
     },
     {
       name: "Szabó Eszter",
-      role: "Szépség blogger",
-      content: "Mint aki több száz terméket tesztel, magabiztosan mondhatom, hogy ez a márka kiemelkedik. A himalájai sós radír tiszta luxus - a bőröm soha nem volt simább!",
+      role: "M6 Spa tulajdonos",
+      content: "Egyszerűen imádom a BullFrog Spas-t! A termékek fantasztikusak, és a csapat mindig segítőkész. A spa élményem teljesen megváltozott. :)",
       rating: 5,
-      image: "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      product: "Himalájai sós testradír"
+      image: "https://cdn.mediavalet.com/usca/bullfrogspas/IJb0btN_gEOn9eS8whSgBg/-ux3g605-k-l56i2DowR_A/Large/Swim-Series_Timber-Snow_Lifestyle.jpeg",
+      product: "M6 Spa masszázsmedence"
     }
   ];
 
@@ -41,8 +41,7 @@ const Testimonials = () => {
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed px-4 animate-fade-in animate-delayed">
-            Ne csak a mi szavunkra hagyatkozz. Itt van, amit értékes vásárlóink mondanak 
-            a prémium spa termékekkel szerzett tapasztalataikról.
+            Ne csak a mi szavunkat fogadja el! Fedezze fel, mit mondanak elégedett vásárlóink prémium spa termékeinkről.
           </p>
         </div>
 
@@ -99,7 +98,7 @@ const Testimonials = () => {
             <div className="text-white/70 text-xs sm:text-sm">Átlagos értékelés</div>
           </div>
           <div className="glass-card rounded-2xl p-4 sm:p-6 hover-lift animate-fade-in animate-delayed">
-            <div className="text-2xl sm:text-3xl font-bold text-navy-300 mb-2">10K+</div>
+            <div className="text-2xl sm:text-3xl font-bold text-navy-300 mb-2">100+</div>
             <div className="text-white/70 text-xs sm:text-sm">Elégedett vásárló</div>
           </div>
           <div className="glass-card rounded-2xl p-4 sm:p-6 hover-lift animate-fade-in animate-delayed-2">
@@ -108,7 +107,7 @@ const Testimonials = () => {
           </div>
           <div className="glass-card rounded-2xl p-4 sm:p-6 hover-lift animate-fade-in animate-delayed-3">
             <div className="text-2xl sm:text-3xl font-bold text-navy-300 mb-2">100%</div>
-            <div className="text-white/70 text-xs sm:text-sm">Természetes összetevők</div>
+            <div className="text-white/70 text-xs sm:text-sm">Minőség garantálva</div>
           </div>
         </div>
       </div>

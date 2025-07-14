@@ -25,23 +25,23 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <MapPin className="w-5 sm:w-6 h-5 sm:h-6" />,
-      title: "Látogass el üzletünkbe",
-      content: "Wellness utca 123\nBudapest, 1234"
+      title: "Látogasson el üzletünkbe",
+      content: "1039 Budapest, \nRákóczi utca 16."
     },
     {
       icon: <Phone className="w-5 sm:w-6 h-5 sm:h-6" />,
-      title: "Hívj minket",
+      title: "Hívjon minket",
       content: "+36 1 234 5678\n+36 1 987 6543"
     },
     {
       icon: <Mail className="w-5 sm:w-6 h-5 sm:h-6" />,
-      title: "Írj nekünk",
+      title: "Írjon nekünk",
       content: "info@bullfrogspas.hu\nrendeles@bullfrogspas.hu"
     },
     {
       icon: <Clock className="w-5 sm:w-6 h-5 sm:h-6" />,
       title: "Nyitvatartás",
-      content: "Hétfő-Péntek: 9:00-19:00\nSzombat-Vasárnap: 10:00-18:00"
+      content: "Hétfő-Péntek: 10:00-18:00\nSzombat-Vasárnap: Előre egyeztetett időpontban",
     }
   ];
 
@@ -60,14 +60,15 @@ const Contact = () => {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="font-playfair font-bold text-white mb-4 sm:mb-6 animate-fade-in">
-            Lépj
+            Lépjen kapcsolatba
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-ocean-400 to-navy-400">
-              kapcsolatba
+              velünk
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed px-4 animate-fade-in animate-delayed">
-            Kérdéseid vannak termékeinkkel kapcsolatban? Segítségre van szükséged a rendeléssel? 
-            Itt vagyunk, hogy segítsünk wellness utazásodban.
+            Kérdései vannak termékeinkkel kapcsolatban? Segítségre van szüksége a megfelelő
+            modell kiválasztásánál? Vegye fel velünk a kapcsolatot!
+
           </p>
         </div>
 
@@ -75,14 +76,14 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="glass-card rounded-3xl p-6 sm:p-8 shadow-lg animate-slide-in-left">
             <h3 className="text-xl sm:text-2xl font-playfair font-bold text-white mb-4 sm:mb-6">
-              Küldj üzenetet
+              Küldjön üzenetet
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
-                    Teljes név *
+                    Az ön neve *
                   </label>
                   <input
                     type="text"
@@ -92,7 +93,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 glass-button rounded-xl focus:ring-2 focus:ring-ocean-400 focus:border-transparent transition-all duration-200 text-white placeholder-white/50"
-                    placeholder="A te neved"
+                    placeholder="Példa János"
                   />
                 </div>
                 <div>
@@ -192,19 +193,6 @@ const Contact = () => {
               </div>
             ))}
 
-            {/* Shipping Info */}
-            <div className="bg-gradient-to-r from-ocean-500 to-navy-500 rounded-2xl p-4 sm:p-6 text-white animate-fade-in animate-delayed-3">
-              <div className="flex items-start space-x-4">
-                <Package className="w-5 sm:w-6 h-5 sm:h-6 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-base sm:text-lg mb-2">Ingyenes szállítás</h4>
-                  <p className="opacity-90 text-sm sm:text-base">
-                    Élvezd az ingyenes szállítást minden 25.000 Ft feletti rendelésnél. 
-                    Gyors, biztonságos kiszállítás az ajtódig.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

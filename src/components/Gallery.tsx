@@ -6,34 +6,34 @@ const Gallery = () => {
 
   const galleryImages = [
     {
-      src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Bőrápolási kollekció",
-      category: "Bőrápolás"
+      src: "https://cdn.mediavalet.com/usca/bullfrogspas/v7-rC7gHL0qVRIedQ4O95g/UKQYkRKYskms5EmOYkjWbg/Large/A-Series_Ebony-Timber-Snow_Lifestyle.jpeg",
+      alt: "Családi spa élmény",
+      category: "Bullfrog Spas"
     },
     {
-      src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Illóolajok",
-      category: "Aromaterápia"
+      src: "https://cdn.mediavalet.com/usca/bullfrogspas/6l27k9lOy0K-mDg0iAMkXQ/WWwDVCPS7UeCHpZ8B2wtpw/Large/Swim-Series_Timber-Snow_Lifestyle.jpeg",
+      alt: "Kikapcsolódás",
+      category: "Bullfrog Spas"
     },
     {
-      src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Fürdő termékek",
-      category: "Fürdő és test"
+      src: "https://cdn.mediavalet.com/usca/bullfrogspas/nOWYeovpeUeHqQQfr-9mNQ/lnKvUfsEvkW-WZ7f7DLDeg/Large/M-Series_Oxidium-Timber_Lifestyle.jpeg",
+      alt: "Gyerekbarát",
+      category: "Bullfrog Spas"
     },
     {
-      src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Természetes összetevők",
-      category: "Összetevők"
+      src: "https://cdn.mediavalet.com/usca/bullfrogspas/kQ1XbkGatkW0Ss-LSI1dEw/rc0SWj-yyUeG4cXBaLepAA/Large/Stil_Snow-Timber_Lifestyle.jpeg",
+      alt: "Romantikus alkalmakra",
+      category: "Bullfrog Spas"
     },
     {
-      src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Wellness eszközök",
-      category: "Wellness"
+      src: "https://cdn.mediavalet.com/usca/bullfrogspas/0rWIGXMQb0G3MEa5rRptrA/_-1qjtHKg0S_z0T4i8hYgw/Large/M-Series_Oxidium-Timber_Lifestyle.jpeg",
+      alt: "Wellness és relaxáció",
+      category: "Bullfrog Spas"
     },
     {
-      src: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-      alt: "Ajándék szettek",
-      category: "Ajándék kollekciók"
+      src: "https://cdn.mediavalet.com/usca/bullfrogspas/IJb0btN_gEOn9eS8whSgBg/-ux3g605-k-l56i2DowR_A/Large/Swim-Series_Timber-Snow_Lifestyle.jpeg",
+      alt: "Egyéb",
+       category: "Bullfrog Spas"
     }
   ];
 
@@ -43,14 +43,14 @@ const Gallery = () => {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="font-playfair font-bold text-white mb-4 sm:mb-6 animate-fade-in">
-            Termék
+            
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-ocean-400 to-navy-400">
-              bemutató
+              Galléria
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed px-4 animate-fade-in animate-delayed">
-            Fedezd fel gyönyörű prémium spa termék kollekciónkat, 
-            amelyek mindegyike gondosan készült a wellness utazásod fokozására.
+            Fedezze fel gyönyörű prémium spa termék kollekciónkat, 
+            amelyek mindegyike gondosan készült a wellness utazása fokozására.
           </p>
         </div>
 
@@ -107,13 +107,13 @@ const Gallery = () => {
         <div className="mt-12 sm:mt-16 text-center animate-fade-in">
           <div className="glass-card rounded-3xl p-6 sm:p-8 md:p-12 text-white">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-playfair font-bold mb-4">
-              Készen állsz a rutinod átalakítására?
+              Készen áll a wellness élményre?
             </h3>
             <p className="text-lg sm:text-xl mb-6 opacity-90 px-4">
-              Böngészd teljes kollekciónkat és fedezd fel azokat a termékeket, amelyek felemelik önápolási rituálédat.
+              Böngéssze teljes kollekciónkat és fedezze fel a prémium spa termékeket, amelyek segítenek elérni a legjobb wellness élményt otthonában.
             </p>
             <button className="bg-gradient-to-r from-ocean-500 to-navy-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:from-ocean-600 hover:to-navy-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 animate-pulse-glow">
-              Összes termék megtekintése
+              Termék kollekció megtekintése
             </button>
           </div>
         </div>
