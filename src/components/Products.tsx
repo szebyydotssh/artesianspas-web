@@ -403,14 +403,13 @@ const Products = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-navy-500/10 via-ocean-500/10 to-purple-500/10 animate-gradient-shift"></div>
             <div className="relative z-10">
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4">
-                Bizonytalan a medence kiválasztásánál?
+                Nem találsz megfelelő terméket?
               </h3>
               <p className="text-lg sm:text-xl mb-6 opacity-90 px-4 font-modern">
-                Lépjen be dizájn stúdiónkba ahol tetszése szerint személyre szabhatja az Ön igényeinek
-megfelelő terméket!
+                Lépj be a dizájn stúdiónkba, ahol személyre szabott tanácsadást és tervezést kínálunk számodra.
               </p>
               <button className="bg-gradient-to-r from-ocean-500 to-navy-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold font-modern text-base sm:text-lg hover:from-ocean-600 hover:to-navy-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 animate-pulse-glow btn-trendy">
-                Belépés
+                Irány a dizájn stúdióba
               </button>
             </div>
           </div>

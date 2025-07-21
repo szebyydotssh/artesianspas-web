@@ -41,7 +41,11 @@ const Hero = () => {
           </h1>
           
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 leading-relaxed font-medium font-modern animate-fade-in animate-delayed-2 px-2">
+<<<<<<< HEAD
             Fedezze fel a termék katalógusunkat, ahol a prémium minőség és a megfizethető árak találkoznak.
+=======
+            Fedezd fel a termék katalógusunkat, ahol a prémium minőség és a megfizethető árak találkoznak. Vásárolj még ma!
+>>>>>>> d7a8866bafc73414cac6fd62a9065613a097b9df
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 animate-fade-in animate-delayed-3">
@@ -60,7 +64,11 @@ const Hero = () => {
           <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 text-white">
             <div className="glass-card rounded-2xl p-4 sm:p-6 border border-white/20 hover-lift animate-fade-in card-hover">
               <div className="text-2xl sm:text-3xl font-bold font-modern mb-2 text-ocean-300">100+</div>
+<<<<<<< HEAD
               <div className="text-white/80 text-sm sm:text-base font-medium font-modern">Prémium termék</div>
+=======
+              <div className="text-white/80 text-sm sm:text-base font-medium font-modern">Prémium termékek</div>
+>>>>>>> d7a8866bafc73414cac6fd62a9065613a097b9df
             </div>
             <div className="glass-card rounded-2xl p-4 sm:p-6 border border-white/20 hover-lift animate-fade-in animate-delayed card-hover">
               <div className="text-2xl sm:text-3xl font-bold font-modern mb-2 text-navy-300">100%</div>
@@ -68,7 +76,11 @@ const Hero = () => {
             </div>
             <div className="glass-card rounded-2xl p-4 sm:p-6 border border-white/20 hover-lift animate-fade-in animate-delayed-2 card-hover">
               <div className="text-2xl sm:text-3xl font-bold font-modern mb-2 text-ocean-300">5★</div>
+<<<<<<< HEAD
               <div className="text-white/80 text-sm sm:text-base font-medium font-modern">Vásárlóink értékelése</div>
+=======
+              <div className="text-white/80 text-sm sm:text-base font-medium font-modern">Vásárlói értékelés</div>
+>>>>>>> d7a8866bafc73414cac6fd62a9065613a097b9df
             </div>
           </div>
         </div>

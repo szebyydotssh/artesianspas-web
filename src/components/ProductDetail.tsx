@@ -339,9 +339,8 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
 Lépjen kapcsolatba szakértőinkkel és fedezze fel hogyan alakíthatja át otthonát
 egy különleges wellness oázissá!
 
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-gradient-to-r from-navy-500 to-ocean-500 text-white px-8 py-4 rounded-full font-semibold font-modern text-lg hover:from-navy-600 hover:to-ocean-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 btn-trendy">
+65613a097b9df
+nsform hover:scale-105 btn-trendy">
                   Ajánlatkérés most
                 </button>
                 <button className="glass-button text-white px-8 py-4 rounded-full font-semibold font-modern hover:bg-white/20 transition-all duration-300 border border-white/30 hover:scale-105">

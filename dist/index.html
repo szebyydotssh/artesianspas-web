@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bullfrog Spas Magyarország - Prémium Spa Termékek</title>
+    <meta name="description" content="Fedezd fel a Bullfrog Spas prémium spa termék kollekciót. Minőségi jacuzzik és wellness megoldások otthonodba.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Modern Preloader styles */
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
+        background-size: 400% 400%;
+        animation: gradientShift 8s ease infinite;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+      }
+      
+      #preloader.fade-out {
+        opacity: 0;
+        visibility: hidden;
+      }
+      
+      /* Animated background particles */
+      .preloader-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+      
+      .particle {
+        position: absolute;
+        background: rgba(99, 102, 241, 0.3);
+        border-radius: 50%;
+        animation: float-particle 6s infinite ease-in-out;
+      }
+      
+      .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+      .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 1s; }
+      .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 2s; }
+      .particle:nth-child(4) { width: 5px; height: 5px; left: 40%; animation-delay: 0.5s; }
+      .particle:nth-child(5) { width: 4px; height: 4px; left: 50%; animation-delay: 1.5s; }
+      .particle:nth-child(6) { width: 6px; height: 6px; left: 60%; animation-delay: 2.5s; }
+      .particle:nth-child(7) { width: 3px; height: 3px; left: 70%; animation-delay: 3s; }
+      .particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-delay: 0.8s; }
+      .particle:nth-child(9) { width: 4px; height: 4px; left: 90%; animation-delay: 1.8s; }
+      
+      .preloader-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+      }
+      
+      .preloader-logo {
+        width: 220px;
+        height: auto;
+        margin-bottom: 3rem;
+        animation: logoFloat 3s ease-in-out infinite;
+        filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(99, 102, 241, 0.3));
+      }
+      
+      /* Modern spinner */
+      .preloader-spinner {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 2rem;
+        position: relative;
+      }
+      
+      .spinner-ring {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 3px solid transparent;
+        border-radius: 50%;
+        animation: spin 2s linear infinite;
+      }
+      
+      .spinner-ring:nth-child(1) {
+        border-top: 3px solid #6366f1;
+        animation-delay: 0s;
+      }
+      
+      .spinner-ring:nth-child(2) {
+        border-right: 3px solid #0ea5e9;
+        animation-delay: 0.3s;
+        width: 70%;
+        height: 70%;
+        top: 15%;
+        left: 15%;
+      }
+      
+      .spinner-ring:nth-child(3) {
+        border-bottom: 3px solid #8b5cf6;
+        animation-delay: 0.6s;
+        width: 40%;
+        height: 40%;
+        top: 30%;
+        left: 30%;
+      }
+      
+      .preloader-text {
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 1.4rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        animation: textPulse 2s ease-in-out infinite;
+        text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+      }
+      
+      .preloader-progress {
+        width: 280px;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        margin-top: 1rem;
+        overflow: hidden;
+        -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .preloader-progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #6366f1, #0ea5e9, #8b5cf6);
+        background-size: 200% 100%;
+        border-radius: 10px;
+        animation: progressFill 3s ease-out forwards, gradientMove 2s ease-in-out infinite;
+        transform: translateX(-100%);
+      }
+      
+      .loading-dots {
+        display: flex;
+        gap: 8px;
+        margin-top: 1rem;
+      }
+      
+      .dot {
+        width: 8px;
+        height: 8px;
+        background: rgba(99, 102, 241, 0.8);
+        border-radius: 50%;
+        animation: dotPulse 1.5s ease-in-out infinite;
+      }
+      
+      .dot:nth-child(2) { animation-delay: 0.2s; }
+      .dot:nth-child(3) { animation-delay: 0.4s; }
+      
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      @keyframes float-particle {
+        0%, 100% { 
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        50% { 
+          transform: translateY(-10vh) rotate(180deg);
+          opacity: 0.8;
+        }
+      }
+      
+      @keyframes logoFloat {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(-15px) scale(1.05); }
+      }
+
+      
+      @keyframes textPulse {
+        0%, 100% { opacity: 0.8; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.02); }
+      }
+      
+      @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      #root {
+        opacity: 0;
+        transition: opacity 0.8s ease-in;
+      }
+      
+      #root.loaded {
+        opacity: 1;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-iU6V5EKu.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-GP4jobv-.css">
+  </head>
+  <body>
+    <!-- Modern Preloader -->
+    <div id="preloader">
+      <!-- Animated background particles -->
+      <div class="preloader-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+      
+      <div class="preloader-content">
+        <center>
+                  <img 
+          src="https://styles.mediavalet.net/logos/BullfrogSpas_02142022.png" 
+          alt="Bullfrog Spas" 
+          class="preloader-logo"
+        />
+        
+        </center>
+      </div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script>
+      // Enhanced preloader logic
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const preloader = document.getElementById('preloader');
+          const root = document.getElementById('root');
+          
+          preloader.classList.add('fade-out');
+          root.classList.add('loaded');
+          
+          setTimeout(function() {
+            preloader.style.display = 'none';
+          }, 800);
+        }, 2500); // Show preloader for at least 2.5 seconds
+      });
+    </script>
+  </body>
+</html>

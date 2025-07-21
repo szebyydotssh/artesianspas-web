@@ -25,7 +25,15 @@ const About = () => {
             <p className="text-base sm:text-lg text-white/80 mb-4 sm:mb-6 leading-relaxed font-modern">
 A Bullfrog Spas-nál hiszünk abban, hogy az igazi szépség a természetből ered. 
 Alalposan átgondolt a legnagyobb gondosággal megtervezett kollekciónk prémium termékeket foglal magában, melyek a legkifinomultabb Spa élményt hozzák otthonába.
-
+              A Bullfrog Spas-nál hiszünk abban, hogy az igazi szépség a természet legfinomabb összetevőiből származik. 
+              Gondosan válogatott kollekciónk prémium spa termékeket tartalmaz, amelyek a luxus spa élményt 
+              közvetlenül az otthonodba hozzák.
+            </p>
+            
+            <p className="text-base sm:text-lg text-white/80 mb-6 sm:mb-8 leading-relaxed font-modern">
+              Kollekciónk minden terméke gondosan van összeállítva organikus, fenntartható módon beszerzett 
+              összetevőkkel. A megfiatalító bőrápolástól az aromaterápiás alapanyagokig, elkötelezettek vagyunk 
+              amellett, hogy olyan termékeket biztosítsunk, amelyek táplálják tested és lelked egyaránt.
             </p>
 
             {/* Stats */}
@@ -51,6 +59,10 @@ Alalposan átgondolt a legnagyobb gondosággal megtervezett kollekciónk prémiu
               </button>
               <button className="glass-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold font-modern hover:bg-white/20 transition-all duration-300 border border-white/30 hover:scale-105 text-sm sm:text-base">
                 Dizájn stúdió látogatása
+                Vásárlás most
+              </button>
+              <button className="glass-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold font-modern hover:bg-white/20 transition-all duration-300 border border-white/30 hover:scale-105 text-sm sm:text-base">
+                Összetevők megismerése
               </button>
             </div>
           </div>
