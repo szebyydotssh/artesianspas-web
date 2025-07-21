@@ -335,14 +335,15 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
               <h2 className="text-4xl font-display font-bold text-white mb-6">
                 Készen áll egy felejthetetlen Spa élményre?
               </h2>
-              <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto font-modern">
-Lépjen kapcsolatba szakértőinkkel és fedezze fel hogyan alakíthatja át otthonát
-egy különleges wellness oázissá!
+<p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto font-modern">
+  Lépjen kapcsolatba szakértőinkkel és fedezze fel, hogyan alakíthatja át otthonát
+  egy különleges wellness oázissá!
+</p>
 
-65613a097b9df
-nsform hover:scale-105 btn-trendy">
-                  Ajánlatkérés most
-                </button>
+<button className="transform glass-button text-white px-8 py-4 rounded-full font-semibold font-modern bg-blue-800 hover:bg-white/20 transition-all duration-300 border border-white/30 hover:scale-105 btn-trendy">
+  Ajánlatkérés most
+</button>
+              <div className="mt-8 flex justify-center space-x-4">
                 <button className="glass-button text-white px-8 py-4 rounded-full font-semibold font-modern hover:bg-white/20 transition-all duration-300 border border-white/30 hover:scale-105">
                   Bemutóterem látogatás
                 </button>
