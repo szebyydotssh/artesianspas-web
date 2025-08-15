@@ -187,6 +187,41 @@
         0%, 100% { transform: translateY(0px) scale(1); }
         50% { transform: translateY(-15px) scale(1.05); }
       }
+      
+      .dot {
+        width: 8px;
+        height: 8px;
+        background: rgba(99, 102, 241, 0.8);
+        border-radius: 50%;
+        animation: dotPulse 1.5s ease-in-out infinite;
+      }
+      
+      .dot:nth-child(2) { animation-delay: 0.2s; }
+      .dot:nth-child(3) { animation-delay: 0.4s; }
+      
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      @keyframes float-particle {
+        0%, 100% { 
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        50% { 
+          transform: translateY(-10vh) rotate(180deg);
+          opacity: 0.8;
+        }
+      }
+      
+      @keyframes logoFloat {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(-15px) scale(1.05); }
+      }
 
       
       @keyframes textPulse {
@@ -198,9 +233,18 @@
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
       }
       
-      #root {
+      @keyframes dotPulse {
+        0%, 100% { transform: scale(1); opacity: 0.7; }
+        50% { transform: scale(1.2); opacity: 1; }
+      }
+      
+      /* Hide main content during loading */
+#root {
         opacity: 0;
         transition: opacity 0.8s ease-in;
       }
@@ -208,9 +252,10 @@
       #root.loaded {
         opacity: 1;
       }
+
     </style>
-    <script type="module" crossorigin src="/assets/index-iU6V5EKu.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-GP4jobv-.css">
+    <script type="module" crossorigin src="/assets/index-CzKjTlyA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BJtDV2mJ.css">
   </head>
   <body>
     <!-- Modern Preloader -->
@@ -230,17 +275,34 @@
       
       <div class="preloader-content">
         <center>
-                  <img 
+          <img 
           src="https://styles.mediavalet.net/logos/BullfrogSpas_02142022.png" 
           alt="Bullfrog Spas" 
           class="preloader-logo"
         />
         
         </center>
+        <div class="preloader-spinner">
+          <div class="spinner-ring"></div>
+          <div class="spinner-ring"></div>
+          <div class="spinner-ring"></div>
+        </div>
+        
+        <div class="preloader-text">Wellness élmény betöltése</div>
+        
+        <div class="loading-dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        
+        <div class="preloader-progress">
+          <div class="preloader-progress-bar"></div>
+        </div>
       </div>
     </div>
     
-    <div id="root"></div>
+    <div id="root"></div>
     
     <script>
       // Enhanced preloader logic

@@ -126,7 +126,7 @@ const M9Page = () => {
 
       {/* Enhanced Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <div className={`flex items-center space-x-2 text-white/60 text-sm transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <div className={`flex flex-wrap items-center gap-2 text-white/60 text-xs sm:text-sm transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <button onClick={() => navigate('/')} className="hover:text-ocean-300 transition-all duration-300 hover:scale-105">
             Főoldal
           </button>
@@ -152,7 +152,7 @@ const M9Page = () => {
         </button>
 
         {/* Hero Section with Video Background */}
-        <div className={`relative mb-16 glass-card rounded-3xl overflow-hidden transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+        <div className={`relative mb-8 sm:mb-16 glass-card rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <div className="absolute inset-0 bg-gradient-to-r from-navy-900/80 via-transparent to-ocean-900/80 z-10"></div>
           
           {/* Video Background */}
@@ -185,9 +185,9 @@ const M9Page = () => {
           </div>
 
           {/* Hero Content */}
-          <div className="relative z-10 p-12">
+          <div className="relative z-10 p-6 sm:p-8 md:p-12">
             <div className="max-w-2xl">
-              <h1 className="text-6xl font-bold text-white mb-4 animate-fade-in-up">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 animate-fade-in-up">
                 {product.name}
                 <span className="text-ocean-400"></span>
               </h1>
@@ -209,17 +209,17 @@ const M9Page = () => {
               </p>
               
               {/* Quick Stats */}
-              <div className="grid grid-cols-4 gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                 {[
                   { icon: Users, label: 'Ülőhely', value: product.seats },
                   { icon: Layout, label: 'Lounge', value: product.loungeSeats },
                   { icon: Zap, label: 'JetPak', value: product.jetpaks },
                   { icon: Droplet, label: 'Szivattyú', value: product.therapyPumps }
                 ].map((stat, index) => (
-                  <div key={index} className="glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all duration-300 hover:scale-105">
-                    <stat.icon className="w-6 h-6 text-ocean-400 mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-white">{stat.value}</div>
-                    <div className="text-white/60 text-sm">{stat.label}</div>
+                  <div key={index} className="glass-card rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:bg-white/10 transition-all duration-300 hover:scale-105">
+                    <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-ocean-400 mx-auto mb-2" />
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold text-white">{stat.value}</div>
+                    <div className="text-white/60 text-xs sm:text-sm">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -228,7 +228,7 @@ const M9Page = () => {
         </div>
 
         {/* Interactive Product Gallery */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 lg:mb-16">
           {/* Enhanced Image Gallery */}
           <div className={`space-y-4 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div 
@@ -240,7 +240,7 @@ const M9Page = () => {
               <img
                 src={product.images[selectedImage]}
                 alt={product.name}
-                className={`w-full h-96 object-cover transition-all duration-700 ${
+                className={`w-full h-64 sm:h-80 md:h-96 object-cover transition-all duration-700 ${
                   isImageZoomed ? 'scale-150' : 'scale-100 group-hover:scale-110'
                 }`}
               />
@@ -273,7 +273,7 @@ const M9Page = () => {
             </div>
             
             {/* Thumbnail Grid */}
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
               {product.images.map((image, index) => (
                 <button
                   key={index}
@@ -282,7 +282,7 @@ const M9Page = () => {
                     selectedImage === index ? 'border-ocean-400 ring-2 ring-ocean-400/50' : 'border-transparent hover:border-white/30'
                   }`}
                 >
-                  <img src={image} alt={`${product.name} ${index + 1}`} className="w-full h-20 object-cover" />
+                  <img src={image} alt={`${product.name} ${index + 1}`} className="w-full h-16 sm:h-20 object-cover" />
                 </button>
               ))}
             </div>
@@ -376,35 +376,35 @@ const M9Page = () => {
         </div>
 
         {/* Interactive Tabs Section */}
-        <div className="mb-16">
-          <div className="flex space-x-1 mb-8 glass-card rounded-full p-2 max-w-2xl mx-auto">
+        <div className="mb-8 sm:mb-12 lg:mb-16">
+          <div className="mb-8 glass-card p-2 max-w-3x1 mx-auto border border-amber-500/20 rounded-xl md:rounded-full flex flex-wrap md:flex-nowrap gap-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 flex items-center justify-center space-x-2 py-3 px-6 rounded-full transition-all duration-300 ${
+                className={`flex-1 flex items-center justify-center space-x-1 sm:space-x-2 py-2 sm:py-3 px-3 sm:px-6 rounded-xl sm:rounded-full transition-all duration-300 ${
                   activeTab === tab.id
                     ? 'bg-gradient-to-r from-ocean-500 to-navy-500 text-white shadow-lg'
                     : 'text-white/70 hover:text-white hover:bg-white/10'
                 }`}
               >
-                <tab.icon className="w-4 h-4" />
-                <span className="font-semibold">{tab.label}</span>
+                <tab.icon className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="font-semibold text-xs sm:text-sm">{tab.label}</span>
               </button>
             ))}
           </div>
 
           {/* Tab Content */}
-          <div className="glass-card rounded-3xl p-8">
+          <div className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8">
             {activeTab === 'overview' && (
               <div className="animate-fade-in">
-                <h2 className="text-3xl font-bold text-white mb-6">Termék áttekintés</h2>
-                <p className="text-white/80 text-lg leading-relaxed mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">Termék áttekintés</h2>
+                <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
                   Tapasztalja meg a luxus és a terápia tökéletes kombinációját az M9-cel. Több hely, több JetPak és egyéb terápiás lehetőségek, változatosabb ülésrendszer, átgondoltabb kényelmi funkciók, egyszerűbb vízkezelés, intuitív kezelés a spa több pontjáról, több világítás és hangulat.
                 </p>
                 
                 {/* Animated Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
                   {[
                     { label: 'Terápiás szivattyúk', value: product.therapyPumps },
                     { label: 'Vezérlők', value: product.auxiliaryControls },
@@ -413,10 +413,10 @@ const M9Page = () => {
                     { label: 'Víz kapacitás', value: product.waterCapacity }
                   ].map((spec, index) => (
                     <div key={index} className="text-center group">
-                      <div className="bg-gradient-to-br from-ocean-500/20 to-navy-500/20 rounded-xl p-4 mb-2 group-hover:from-ocean-500/30 group-hover:to-navy-500/30 transition-all duration-300">
-                        <div className="text-2xl font-bold text-white group-hover:scale-110 transition-transform">{spec.value}</div>
+                      <div className="bg-gradient-to-br from-ocean-500/20 to-navy-500/20 rounded-lg sm:rounded-xl p-3 sm:p-4 mb-2 group-hover:from-ocean-500/30 group-hover:to-navy-500/30 transition-all duration-300">
+                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-white group-hover:scale-110 transition-transform">{spec.value}</div>
                       </div>
-                      <span className="text-white/60 text-sm">{spec.label}</span>
+                      <span className="text-white/60 text-xs sm:text-sm">{spec.label}</span>
                     </div>
                   ))}
                 </div>
@@ -425,34 +425,34 @@ const M9Page = () => {
 
             {activeTab === 'jetpaks' && (
               <div className="animate-fade-in">
-                <h2 className="text-3xl font-bold text-white mb-6">JetPak lehetőségek</h2>
-                <p className="text-white/80 mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">JetPak lehetőségek</h2>
+                <p className="text-white/80 text-sm sm:text-base mb-6 sm:mb-8">
                   A Bullfrog Spas JetPak terápiás rendszeré akár 16 egyedi és cserélhető JetPak masszázst tartalmaz, így személyre szabhatja a spa élményt.
                 </p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {product.jetPakOptions?.map((jetPak, index) => (
                     <div 
                       key={index} 
-                      className="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer group hover:scale-105"
+                      className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer group hover:scale-105"
                       onClick={() => setSelectedJetPak(index)}
                     >
                       <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-xl font-bold text-white group-hover:text-ocean-400 transition-colors">{jetPak.name}</h3>
+                        <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-ocean-400 transition-colors">{jetPak.name}</h3>
                         <Zap className="w-5 h-5 text-ocean-400 group-hover:animate-pulse" />
                       </div>
-                      <p className="text-white/70 mb-4">{jetPak.description}</p>
+                      <p className="text-white/70 text-sm sm:text-base mb-4">{jetPak.description}</p>
                       <div className="space-y-2">
                         <div className="flex justify-between items-center">
-                          <span className="text-white/60">Jet száma:</span>
-                          <span className="text-white font-semibold">{jetPak.jetCount}</span>
+                          <span className="text-white/60 text-sm">Jet száma:</span>
+                          <span className="text-white font-semibold text-sm">{jetPak.jetCount}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-white/60">Típusok:</span>
+                          <span className="text-white/60 text-sm">Típusok:</span>
                           <span className="text-white text-sm">{jetPak.jetTypes.join(', ')}</span>
                         </div>
                         <div className="mt-3">
-                          <span className="text-white/60 text-sm">Célterületek:</span>
+                          <span className="text-white/60 text-xs sm:text-sm">Célterületek:</span>
                           <div className="flex flex-wrap gap-2 mt-2">
                             {jetPak.targetAreas.map((area, i) => (
                               <span key={i} className="bg-ocean-500/20 text-ocean-300 px-2 py-1 rounded-full text-xs">
@@ -470,19 +470,19 @@ const M9Page = () => {
 
             {activeTab === 'features' && (
               <div className="animate-fade-in">
-                <h2 className="text-3xl font-bold text-white mb-6">Beépített funkciók</h2>
-                <p className="text-white/80 mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">Beépített funkciók</h2>
+                <p className="text-white/80 text-sm sm:text-base mb-6 sm:mb-8">
                   Prémium funkciók a tökéletes spa élményért.
                 </p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {product.includedFeatures?.map((feature, index) => (
-                    <div key={index} className="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div key={index} className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300 group">
                       <div className="flex items-start space-x-3">
-                        <CheckCircle className="w-6 h-6 text-green-400 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                        <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-400 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
                         <div>
-                          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-ocean-400 transition-colors">{feature.name}</h3>
-                          <p className="text-white/70">{feature.description}</p>
+                          <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-ocean-400 transition-colors">{feature.name}</h3>
+                          <p className="text-white/70 text-sm sm:text-base">{feature.description}</p>
                         </div>
                       </div>
                     </div>
@@ -495,7 +495,7 @@ const M9Page = () => {
 
         {/* Enhanced CTA Section */}
         <div className="text-center">
-          <div className="glass-card rounded-3xl p-12 relative overflow-hidden group">
+          <div className="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 relative overflow-hidden group">
             {/* Animated background */}
             <div className="absolute inset-0 bg-gradient-to-r from-navy-500/10 via-ocean-500/10 to-purple-500/10 animate-gradient-shift"></div>
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
@@ -504,30 +504,30 @@ const M9Page = () => {
             
             <div className="relative z-10">
               <div className="flex items-center justify-center mb-6">
-                <Sparkles className="w-8 h-8 text-yellow-400 mr-3 animate-pulse" />
-                <h2 className="text-4xl font-bold text-white">
+                <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 mr-2 sm:mr-3 animate-pulse" />
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center">
                   Készen áll egy felejthetetlen Spa élményre?
                 </h2>
-                <Sparkles className="w-8 h-8 text-yellow-400 ml-3 animate-pulse" />
+                <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 ml-2 sm:ml-3 animate-pulse" />
               </div>
               
-              <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl text-white/80 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
                 Lépjen kapcsolatba szakértőinkkel és fedezze fel, hogyan alakíthatja át otthonát egy különleges wellness oázissá!
               </p>
               
-              <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <button className="bg-gradient-to-r from-ocean-500 to-navy-500 text-white px-8 py-4 rounded-full font-semibold hover:from-ocean-600 hover:to-navy-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 relative overflow-hidden group">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 px-4">
+                <button className="bg-gradient-to-r from-ocean-500 to-navy-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base hover:from-ocean-600 hover:to-navy-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 relative overflow-hidden group">
                   <span className="relative z-10">Ajánlatkérés most</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </button>
-                <button className="glass-button text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all duration-300 border border-white/30 hover:scale-105 relative overflow-hidden group">
+                <button className="glass-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base hover:bg-white/20 transition-all duration-300 border border-white/30 hover:scale-105 relative overflow-hidden group">
                   <span className="relative z-10">Bemutóterem látogatás</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </button>
               </div>
               
               {/* Trust Indicators */}
-              <div className="flex items-center justify-center space-x-8 mt-8 text-white/60">
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 mt-6 sm:mt-8 text-white/60 text-sm">
                 <div className="flex items-center space-x-2">
                   <ShieldCheck className="w-5 h-5 text-green-400" />
                   <span>7 év garancia</span>

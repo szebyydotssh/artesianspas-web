@@ -35,7 +35,7 @@ import {
   Layers,
   Activity
 } from 'lucide-react';
-import products from '../../products';
+import products from '../products';
 
 const X7LPage = () => {
   const navigate = useNavigate();
@@ -137,7 +137,7 @@ const X7LPage = () => {
 
       {/* Enhanced Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <div className={`flex items-center space-x-2 text-white/60 text-sm transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <div className={`flex flex-wrap items-center gap-2 text-white/60 text-xs sm:text-sm transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <button onClick={() => navigate('/')} className="hover:text-ocean-300 transition-all duration-300 hover:scale-105">
             Főoldal
           </button>
@@ -239,7 +239,7 @@ const X7LPage = () => {
         </div>
 
         {/* Interactive Product Gallery */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 lg:mb-16">
           {/* Enhanced Image Gallery */}
           <div className={`space-y-4 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div 
@@ -251,7 +251,7 @@ const X7LPage = () => {
               <img
                 src={product.images[selectedImage]}
                 alt={product.name}
-                className={`w-full h-96 object-cover transition-all duration-700 ${
+                className={`w-full h-64 sm:h-80 md:h-96 object-cover transition-all duration-700 ${
                   isImageZoomed ? 'scale-150' : 'scale-100 group-hover:scale-110'
                 }`}
               />
@@ -458,7 +458,7 @@ const X7LPage = () => {
 
         {/* Interactive Tabs Section */}
         <div className="mb-16">
-          <div className="flex space-x-1 mb-8 glass-card rounded-full p-2 max-w-3xl mx-auto border border-green-500/20">
+          <div className="mb-8 glass-card p-2 max-w-3x1 mx-auto border border-green-500/20 rounded-xl md:rounded-full flex flex-wrap md:flex-nowrap gap-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}

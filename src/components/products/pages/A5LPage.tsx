@@ -482,7 +482,7 @@ const A5LPage = () => {
 
         {/* Interactive Tabs Section */}
         <div className="mb-16">
-          <div className="flex space-x-1 mb-8 glass-card rounded-full p-2 max-w-3xl mx-auto border border-purple-500/20">
+<div className="mb-8 glass-card p-2 max-w-3x1 mx-auto border border-purple-500/20 rounded-xl md:rounded-full flex flex-wrap md:flex-nowrap gap-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}

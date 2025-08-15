@@ -126,7 +126,7 @@ const M8Page = () => {
 
       {/* Enhanced Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <div className={`flex items-center space-x-2 text-white/60 text-sm transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <div className={`flex flex-wrap items-center gap-2 text-white/60 text-xs sm:text-sm transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <button onClick={() => navigate('/')} className="hover:text-ocean-300 transition-all duration-300 hover:scale-105">
             Főoldal
           </button>
@@ -152,7 +152,7 @@ const M8Page = () => {
         </button>
 
         {/* Hero Section with Video Background */}
-        <div className={`relative mb-16 glass-card rounded-3xl overflow-hidden transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+        <div className={`relative mb-8 sm:mb-16 glass-card rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <div className="absolute inset-0 bg-gradient-to-r from-navy-900/80 via-transparent to-ocean-900/80 z-10"></div>
           
           {/* Video Background */}
@@ -185,9 +185,9 @@ const M8Page = () => {
           </div>
 
           {/* Hero Content */}
-          <div className="relative z-10 p-12">
+          <div className="relative z-10 p-6 sm:p-8 md:p-12">
             <div className="max-w-2xl">
-              <h1 className="text-6xl font-bold text-white mb-4 animate-fade-in-up">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 animate-fade-in-up">
                 {product.name}
                 <span className="text-ocean-400">®</span>
               </h1>
@@ -209,17 +209,17 @@ const M8Page = () => {
               </p>
               
               {/* Quick Stats */}
-              <div className="grid grid-cols-4 gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                 {[
                   { icon: Users, label: 'Ülőhely', value: product.seats },
                   { icon: Layout, label: 'Lounge', value: product.loungeSeats },
                   { icon: Zap, label: 'JetPak', value: product.jetpaks },
                   { icon: Droplet, label: 'Szivattyú', value: product.therapyPumps }
                 ].map((stat, index) => (
-                  <div key={index} className="glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all duration-300 hover:scale-105">
-                    <stat.icon className="w-6 h-6 text-ocean-400 mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-white">{stat.value}</div>
-                    <div className="text-white/60 text-sm">{stat.label}</div>
+                  <div key={index} className="glass-card rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:bg-white/10 transition-all duration-300 hover:scale-105">
+                    <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-ocean-400 mx-auto mb-2" />
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold text-white">{stat.value}</div>
+                    <div className="text-white/60 text-xs sm:text-sm">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -228,7 +228,7 @@ const M8Page = () => {
         </div>
 
         {/* Interactive Product Gallery */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 lg:mb-16">
           {/* Enhanced Image Gallery */}
           <div className={`space-y-4 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div 
@@ -240,7 +240,7 @@ const M8Page = () => {
               <img
                 src={product.images[selectedImage]}
                 alt={product.name}
-                className={`w-full h-96 object-cover transition-all duration-700 ${
+                className={`w-full h-64 sm:h-80 md:h-96 object-cover transition-all duration-700 ${
                   isImageZoomed ? 'scale-150' : 'scale-100 group-hover:scale-110'
                 }`}
               />
@@ -273,7 +273,7 @@ const M8Page = () => {
             </div>
             
             {/* Thumbnail Grid */}
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
               {product.images.map((image, index) => (
                 <button
                   key={index}
@@ -282,7 +282,7 @@ const M8Page = () => {
                     selectedImage === index ? 'border-ocean-400 ring-2 ring-ocean-400/50' : 'border-transparent hover:border-white/30'
                   }`}
                 >
-                  <img src={image} alt={`${product.name} ${index + 1}`} className="w-full h-20 object-cover" />
+                  <img src={image} alt={`${product.name} ${index + 1}`} className="w-full h-16 sm:h-20 object-cover" />
                 </button>
               ))}
             </div>
@@ -377,7 +377,7 @@ const M8Page = () => {
 
         {/* Interactive Tabs Section */}
         <div className="mb-16">
-          <div className="flex space-x-1 mb-8 glass-card rounded-full p-2 max-w-2xl mx-auto">
+          <div className="mb-8 glass-card p-2 max-w-3x1 mx-auto border border-amber-500/20 rounded-xl md:rounded-full flex flex-wrap md:flex-nowrap gap-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
